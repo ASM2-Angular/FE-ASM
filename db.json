@@ -1,0 +1,26 @@
+{
+  "products": [
+    {
+      "id": 2,
+      "name": "Product B",
+      "price": 300,
+      "img": ""
+    },
+    {
+      "id": 3,
+      "name": "Product C",
+      "price": 400,
+      "img": ""
+    },
+    {
+      "name": "sản phẩm mới vừa thêm update",
+      "price": 300,
+      "id": 4
+    },
+    {
+      "name": "tinh",
+      "price": 444,
+      "id": 5
+    }
+  ]
+}
