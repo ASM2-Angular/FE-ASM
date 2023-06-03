@@ -17,6 +17,8 @@ import { BaseLayoutComponent } from './layouts/base-layout/base-layout.component
 import { SignupComponent } from './pages/signup/signup.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ProductDeitalComponent } from './pages/product-deital/product-deital.component';
+import { ProductEditComponent } from './pages/product-edit/product-edit.component';
+import { ProductAddComponent } from './pages/product-add/product-add.component';
 
 // decorators
 @NgModule({
@@ -33,6 +35,9 @@ import { ProductDeitalComponent } from './pages/product-deital/product-deital.co
     SignupComponent,
     ContactComponent,
     ProductDeitalComponent,
+    
+    ProductEditComponent,
+          ProductAddComponent,
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,8 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { SignupComponent } from './pages/signup/signup.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ProductDeitalComponent } from './pages/product-deital/product-deital.component';
+import { ProductEditComponent } from './pages/product-edit/product-edit.component';
+import { ProductAddComponent } from './pages/product-add/product-add.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,8 @@ const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'product', component: ProductListComponent },
+      { path: 'product/add', component: ProductAddComponent },
+      { path: 'product/:id/edit', component: ProductEditComponent },
     ]
   },
   { path: '**', component: PageNotFoundComponent }
