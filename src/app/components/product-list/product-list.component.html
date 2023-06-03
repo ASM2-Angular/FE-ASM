@@ -1,25 +1,27 @@
 <div class="container">
     <h1>Quản lý sản phẩm</h1>
-    <input type="text" (input)="setValue($event)" />
-    {{ myName }}
-    <div *ngIf="status">Hiển thị</div>
-    <button (click)="toggle()">Toggle</button>
+    <div class="search-container">
+        <input type="text" placeholder="Nhập từ khóa tìm kiếm">
+        <button type="submit">Tìm kiếm</button>
+      </div>
+      
     <hr />
-    <table class="table-border table">
+    <table class="table table-striped table-hover">
         <thead>
             <tr>
                 <th>STT</th>
+                <th>Images</th>
                 <th>Tên</th>
                 <th>Giá</th>
-                <th></th>
+                <th>Option</th>
             </tr>
         </thead>
         <tbody>
             <!-- ${product.map(item => <tr>${item.name}</tr>)} -->
             <tr *ngFor="let item of products; index as i">
-                <td width="50">{{ i + 1 }}</td>
-                <td width="50">
-                    <img width="50" [src]="item.img" />
+                <td >{{ i + 1 }}</td>
+                <td>
+                    <img width="50" src="../../../assets/images/logo.png" />
                 </td>
                 <td>{{ item.name }}</td>
                 <td>{{ item.price }}</td>
