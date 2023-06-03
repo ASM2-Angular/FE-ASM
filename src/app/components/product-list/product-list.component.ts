@@ -31,26 +31,22 @@ export class ProductListComponent {
     this.status = !this.status; 
   }
 
+  // removeItem(_id: any) {
+  //   this.productService.deleteProduct(_id).subscribe(() => {
+  //     this.products = this.products.filter(product => product._id !== _id)  
+  //   })
+  //   // this.onRemove.emit(id);
+  // }
+
   removeItem(_id: any) {
-    this.productService.deleteProduct(_id).subscribe(() => {
-      this.products = this.products.filter(product => product._id !== _id)  
-    })
-    // this.onRemove.emit(id);
+    if (window.confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')) {
+      this.productService.deleteProduct(_id).subscribe(() => {
+        this.products = this.products.filter(product => product._id !== _id);
+      });
+      // this.onRemove.emit(id);
+    }
   }
 }
 
 
 
-// ProductList.js
-// function ProductList({ products, onRemove }) {
-//   return <div>
-//     {
-//       products.map(product => product.name)
-// <button onClick={() => onRemove(product.id)}>Remove</button>
-//         < /div>
-//     }
-
-// App.js
-
-// <ProductList products={state} onRemove="onHandleRemove"/>
-// <app-product-list [products]="products" />
