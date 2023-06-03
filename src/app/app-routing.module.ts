@@ -12,6 +12,8 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ProductDeitalComponent } from './pages/product-deital/product-deital.component';
 import { ProductEditComponent } from './pages/product-edit/product-edit.component';
 import { ProductAddComponent } from './pages/product-add/product-add.component';
+import { SignLayoutComponent } from './layouts/sign-layout/sign-layout.component';
+import { SigninComponent } from './pages/signin/signin.component';
 
 const routes: Routes = [
   {
@@ -19,8 +21,13 @@ const routes: Routes = [
       { path: '', component: HomePageComponent },
       { path: 'about', component: AboutComponent },
       { path: 'contact', component:ContactComponent },
-      {path: 'signup', component: SignupComponent},
       { path: 'product/:id', component: ProductDeitalComponent }
+    ]
+  },
+  {
+    path: '', component: SignLayoutComponent, children: [
+      {path:'signup', component: SignupComponent},
+      {path:'signin',component:SigninComponent}
     ]
   },
   {

@@ -19,6 +19,9 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ProductDeitalComponent } from './pages/product-deital/product-deital.component';
 import { ProductEditComponent } from './pages/product-edit/product-edit.component';
 import { ProductAddComponent } from './pages/product-add/product-add.component';
+import { SignLayoutComponent } from './layouts/sign-layout/sign-layout.component';
+import { SigninComponent } from './pages/signin/signin.component';
+
 
 // decorators
 @NgModule({
@@ -35,9 +38,10 @@ import { ProductAddComponent } from './pages/product-add/product-add.component';
     SignupComponent,
     ContactComponent,
     ProductDeitalComponent,
-    
     ProductEditComponent,
-          ProductAddComponent,
+    ProductAddComponent,
+    SignLayoutComponent,
+    SigninComponent,
   ],
   imports: [
     BrowserModule,
