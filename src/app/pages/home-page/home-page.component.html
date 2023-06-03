@@ -84,7 +84,7 @@
                 </div>
                 <div class="row gx-5 justify-content-center mb-5">
                     <!-- Gio Hang-->
-                    <div class="col-lg-6 col-xl-4">
+                    <div *ngFor="let product of products" class=" col-lg-6 col-xl-4">
                         <div class="card mb-5 mb-xl-0">
                             <div class="card-body p-5">
                                 <img src="../../../assets/images/f1.png" class="img-fluid custom-height">
@@ -92,11 +92,11 @@
                                 <ul class="list-unstyled mb-4">
                                     <li class="mb-2">
                                         <i class="text-bold fs-2 text"></i>
-                                        <strong>Thức Ăn Cho Cún (< 5 Tháng Tuổi)</strong>
+                                        <strong>{{product.name}}</strong>
                                         
                                     </li>
                                     <li class="mb-2">
-                                        <strong class=" fs-3 text text-danger" >28 $</strong>
+                                        <strong class=" fs-3 text text-danger" >{{product.price}} $</strong>
                                     </li>
                                     <li class="mb-2">
                                         <i class="bi bi-check text-primary"></i>
@@ -112,159 +112,7 @@
                         </div>
                     </div>
                     <!-- Pricing card pro-->
-                    <div class="col-lg-6 col-xl-4">
-                        <div class="card mb-5 mb-xl-0">
-                            <div class="card-body p-5">
-                                <img src="../../../assets/images/f2.png" class="img-fluid custom-height">
-                    
-                                <ul class="list-unstyled mb-4">
-                                    <li class="mb-2">
-                                        <i class="text-bold fs-2 text"></i>
-                                        <strong>Thức Ăn Cho Cún ( > 5 tháng tuổi) </strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <strong class=" fs-3 text text-danger" >32 $</strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Unlimited public projects
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Community access
-                                    </li>
-                                    
-                                </ul>
-                                <div class="d-grid"><a class="btn btn-outline-primary" href="#!">Choose plan</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Pricing card enterprise-->
-                    <div class="col-lg-6 col-xl-4">
-                        <div class="card">
-                            <div class="card-body p-5">
-                                <img src="../../../assets/images/f3.png" class="img-fluid custom-height">
-                                <ul class="list-unstyled mb-4">
-                                    <li class="mb-2">
-                                        <i class=" text-bold fs-2 text"></i>
-                                        <strong>Thức Ăn Cho Cún Lông Xù</strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <strong class=" fs-3 text text-danger" >32 $</strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        <strong>Unlimited</strong>
-                                        linked domains
-                                    </li>
-                                    <li class="text-muted">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Monthly status reports
-                                    </li>
-                                </ul>
-                                <div class="d-grid"><a class="btn btn-outline-primary" href="#!">Choose plan</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-
-                    
-
-                   
-                </div>
-
-                <div class="row gx-5 justify-content-center">
-                    <!-- Product-->
-                    <div class="col-lg-6 col-xl-4">
-                        <div class="card mb-5 mb-xl-0">
-                            <div class="card-body p-5">
-                                <img src="../../../assets/images/f1.png" class="img-fluid custom-height">
-                                
-                                <ul class="list-unstyled mb-4">
-                                    <li class="mb-2">
-                                        <i class="text-bold fs-2 text"></i>
-                                        <strong>Thức Ăn Cho Cún (< 5 Tháng Tuổi)</strong>
-                                        
-                                    </li>
-                                    <li class="mb-2">
-                                        <strong class=" fs-3 text text-danger" >28 $</strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Unlimited public projects
-                                    </li>
-                                    <li class="text-muted">
-                                        <i class="bi bi-x"></i>
-                                        Monthly status reports
-                                    </li>
-                                </ul>
-                                <div class="d-grid"><a class="btn btn-outline-primary" href="#!">Choose plan</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Pricing card pro-->
-                    <div class="col-lg-6 col-xl-4">
-                        <div class="card mb-5 mb-xl-0">
-                            <div class="card-body p-5">
-                                <img src="../../../assets/images/f2.png" class="img-fluid custom-height">
-                    
-                                <ul class="list-unstyled mb-4">
-                                    <li class="mb-2">
-                                        <i class="text-bold fs-2 text"></i>
-                                        <strong>Thức Ăn Cho Cún ( > 5 tháng tuổi) </strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <strong class=" fs-3 text text-danger" >32 $</strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Unlimited public projects
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Community access
-                                    </li>
-                                    
-                                </ul>
-                                <div class="d-grid"><a class="btn btn-outline-primary" href="#!">Choose plan</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Pricing card enterprise-->
-                    <div class="col-lg-6 col-xl-4">
-                        <div class="card">
-                            <div class="card-body p-5">
-                                <img src="../../../assets/images/f3.png" class="img-fluid custom-height">
-                                <ul class="list-unstyled mb-4">
-                                    <li class="mb-2">
-                                        <i class=" text-bold fs-2 text"></i>
-                                        <strong>Thức Ăn Cho Cún Lông Xù</strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <strong class=" fs-3 text text-danger" >32 $</strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        <strong>Unlimited</strong>
-                                        linked domains
-                                    </li>
-                                    <li class="text-muted">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Monthly status reports
-                                    </li>
-                                </ul>
-                                <div class="d-grid"><a class="btn btn-outline-primary" href="#!">Choose plan</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-
-                    
-
-                   
-                </div>
+                </div>  
             </div>
         </section>
         <!-- Testimonials section-->

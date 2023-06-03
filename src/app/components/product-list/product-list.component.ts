@@ -14,7 +14,7 @@ export class ProductListComponent {
   myName: string = "";
   docs:any
 
-  // status: boolean = false;
+  status: boolean = false;
   constructor(private productService: ProductService) {
     this.productService.getProducts().subscribe(data => {  
       this.docs = data;
@@ -27,9 +27,9 @@ export class ProductListComponent {
   setValue(e: any) {
     this.myName = e.target.value;
   }
-  // toggle() {
-  //   this.status = !this.status; 
-  // }
+  toggle() {
+    this.status = !this.status; 
+  }
 
   removeItem(_id: any) {
     this.productService.deleteProduct(_id).subscribe(() => {

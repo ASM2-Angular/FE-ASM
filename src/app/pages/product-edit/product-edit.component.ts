@@ -17,7 +17,8 @@ export class ProductEditComponent {
     price: [0],
     desc: ['']
   })
-
+docs:any;
+products:any;
   constructor(
     private formBuilder: FormBuilder,
     private productService: ProductService,
@@ -25,10 +26,13 @@ export class ProductEditComponent {
     private route2: Router
   ) {
     this.router.paramMap.subscribe((params => {
-      const _id = Number(params.get('_id'));
-      this.productService.getProduct('_id').subscribe(data => {
+      const id = (params.get('id'));  //
+      // console.log(params.get('id'));
+      // return;
+      this.productService.getProduct(id!).subscribe(({data}) => {
         this.product = data;
-
+        // console.log(data.data);
+        // console.log(this.product);
         this.productForm.patchValue({
           name: data.name,
           price: data.price,

@@ -16,13 +16,13 @@ export class ProductService {
   deleteProduct(_id: string): Observable<any> {
     return this.http.delete(`http://localhost:8080/api/products/${_id}`)
   }
-  getProduct(_id: string): Observable<IProduct> {
-    return this.http.get<IProduct>(`http://localhost:8080/api/products/${_id}`)
+ getProduct(_id: string): Observable<any> {
+    return this.http.get<any>(`http://localhost:8080/api/products/${_id}`)
   }
   addProduct(product: IProduct): Observable<IProduct> {
     return this.http.post<IProduct>('http://localhost:8080/api/products', product)
   }
   updateProduct(product: IProduct): Observable<IProduct> {
-    return this.http.patch<IProduct>(`http://localhost:8080/api/products/${product._id}`, product)
+    return this.http.put<IProduct>(`http://localhost:8080/api/products/${product._id}`, product)
   }
 }

@@ -4,4 +4,5 @@ export interface IProduct {
     price: number;
     desc?: string;
     // img?: string;
+    createdAt?: string;
 }

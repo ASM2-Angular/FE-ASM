@@ -1,8 +1,8 @@
 <div class="container">
     <h1>Quản lý sản phẩm</h1>
     <input type="text" (input)="setValue($event)"/>
-    <!-- <div *bgIf="status">Hiện thị</div> -->
-    <!-- <button class="btn btn-primary" (click)="toggle()">Tìm kiếm</button> -->
+    <div *bgIf="status">Hiện thị</div>
+    <button class="btn btn-primary" (click)="toggle()">Tìm kiếm</button>
     <hr>
     <a href="admin/product/add" class="btn btn-success">Add Product</a>
     <table class="table-border table">
@@ -12,6 +12,7 @@
                 <th>name</th>
                 <th>price</th>
                 <th>desc</th>
+                <th>Thao tac</th>
             </tr>
         </thead>
         <tbody  *ngIf="products && products.length">
@@ -21,6 +22,7 @@
                 <td>{{item.name}}</td>
                 <td>{{item.price}}</td>
                 <!-- <td>{{item.img}}</td> -->
+                <td>{{item.desc}}</td>
                 
                 <td>
                     <button class="btn btn-danger" (click)="removeItem(item._id)">Xóa</button>
