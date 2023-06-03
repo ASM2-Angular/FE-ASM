@@ -14,11 +14,9 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import { AdminProductComponent } from './pages/admin/admin-product/admin-product.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { BaseLayoutComponent } from './layouts/base-layout/base-layout.component';
-import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
-import { ProductAddComponent } from './pages/product-add/product-add.component';
-import { ProductEditComponent } from './pages/product-edit/product-edit.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { ProductDeitalComponent } from './pages/product-deital/product-deital.component';
 
 // decorators
 @NgModule({
@@ -32,11 +30,9 @@ import { ContactComponent } from './pages/contact/contact.component';
     AdminProductComponent,
     AdminLayoutComponent,
     BaseLayoutComponent,
-    ProductDetailComponent,
-    ProductAddComponent,
-    ProductEditComponent,
     SignupComponent,
     ContactComponent,
+    ProductDeitalComponent,
   ],
   imports: [
     BrowserModule,

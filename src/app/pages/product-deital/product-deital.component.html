@@ -1,0 +1,61 @@
+<div id="slideshow" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#slideshow" data-slide-to="0" class="active"></li>
+      <li data-target="#slideshow" data-slide-to="1"></li>
+      <li data-target="#slideshow" data-slide-to="2"></li>
+      <!-- Thêm các chỉ số tương ứng với số lượng ảnh trong slideshow -->
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../../../assets/images/banner.png" width="100%" alt="Image 1">
+      </div>
+      <div class="carousel-item">
+        <img src="../../../assets/images/hero-bg.jpg" alt="Image 2">
+      </div>
+      <div class="carousel-item">
+        <img src="../../../assets/images/client-bg.jpg" alt="Image 3">
+      </div>
+      <!-- Thêm các mục tương ứng với số lượng ảnh trong slideshow -->
+    </div>
+  </div>
+
+  <!-- JavaScript Bootstrap và tùy chỉnh -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Thiết lập thời gian chuyển đổi giữa các ảnh (3 giây = 3000ms)
+      $('#slideshow').carousel({
+        interval: 3000
+      });
+    });
+  </script>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <title>Chi tiết sản phẩm</title>
+</head>
+<body>
+  <div class="container mb">
+    <div class="row ">
+      <div class="col-md-6">
+        <img src="../../../assets/images/f2.png" class="img-fluid" alt="Ảnh sản phẩm" width="200px">
+      </div>
+      <div class="col-md-6 mb-10">
+        <h2>Tên sản phẩm</h2>
+        <h3>Giá tiền: $99.99</h3>
+        <p>Mô tả sản phẩm:</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat tortor lorem, id dictum arcu placerat a. Ut vel lacus nec urna finibus convallis at at massa.</p>
+        <button class="btn btn-primary">Thêm vào giỏ hàng</button>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

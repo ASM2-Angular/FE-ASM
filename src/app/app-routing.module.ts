@@ -7,11 +7,9 @@ import { BaseLayoutComponent } from './layouts/base-layout/base-layout.component
 import { AboutComponent } from './pages/about/about.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
-import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
-import { ProductAddComponent } from './pages/product-add/product-add.component';
-import { ProductEditComponent } from './pages/product-edit/product-edit.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { ProductDeitalComponent } from './pages/product-deital/product-deital.component';
 
 const routes: Routes = [
   {
@@ -20,7 +18,7 @@ const routes: Routes = [
       { path: 'about', component: AboutComponent },
       { path: 'contact', component:ContactComponent },
       {path: 'signup', component: SignupComponent},
-      { path: 'product/:id', component: ProductDetailComponent }
+      { path: 'product/:id', component: ProductDeitalComponent }
     ]
   },
   {
@@ -28,8 +26,6 @@ const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'product', component: ProductListComponent },
-      { path: 'product/add', component: ProductAddComponent },
-      { path: 'product/:id/edit', component: ProductEditComponent }
     ]
   },
   { path: '**', component: PageNotFoundComponent }
