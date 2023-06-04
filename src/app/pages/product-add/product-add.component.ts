@@ -10,9 +10,10 @@ import { Router } from '@angular/router';
 })
 export class ProductAddComponent {
   productForm = this.formBuilder.group({
-    name: ['', [Validators.required, Validators.minLength(4)]],
+    name: ['', [Validators.required, Validators.minLength(4)]], 
     price: [0],
-    desc: ['']
+    img: ['',Validators.required],
+    desc: ['', [Validators.required, Validators.minLength(4)]]
   })
 
   constructor(
@@ -25,7 +26,9 @@ export class ProductAddComponent {
       const product:IProduct = {
         name: this.productForm.value.name || '', 
         price: this.productForm.value.price || 0,
-        desc: this.productForm.value.desc || '',
+        img: this.productForm.value.img || '',
+        desc: this.productForm.value.desc || ''
+
 
       }
       this.productService.addProduct(product).subscribe(data => {
