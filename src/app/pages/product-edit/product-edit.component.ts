@@ -15,7 +15,8 @@ export class ProductEditComponent {
   productForm = this.formBuilder.group({
     name: ['', [Validators.required, Validators.minLength(4)]],
     price: [0],
-    desc: ['']
+    img: ['',Validators.required],
+    desc: ['', [Validators.required, Validators.minLength(4)]]
   })
 docs:any;
 products:any;
@@ -31,12 +32,13 @@ products:any;
       // return;
       this.productService.getProduct(id!).subscribe(({data}) => {
         this.product = data;
-        // console.log(data.data);
+        // console.log(data);
         // console.log(this.product);
         this.productForm.patchValue({
           name: data.name,
           price: data.price,
-          desc: data.desc
+          img: data.img, 
+          desc: data.desc 
 
         })
       }, error => console.log(error.message))
@@ -48,7 +50,8 @@ products:any;
         _id: this.product._id,
         name: this.productForm.value.name || "",
         price: this.productForm.value.price || 0,
-        desc: this.product.desc || "",
+        img: this.productForm.value.img || "",
+        desc: this.productForm.value.desc || ""
       }
 
       this.productService.updateProduct(product).subscribe((product) => {

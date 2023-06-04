@@ -46,6 +46,7 @@ export class ProductListComponent {
       // this.onRemove.emit(id);
     }
   }
+  
 }
 
 

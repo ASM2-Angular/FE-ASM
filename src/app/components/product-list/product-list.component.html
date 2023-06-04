@@ -3,15 +3,18 @@
     <div class="search-container">
         <input type="text" placeholder="Nhập từ khóa tìm kiếm">
         <button type="submit">Tìm kiếm</button>
+        
     </div>
     <hr>
+    <a href="admin/product/add" class="btn btn-success">Add Product</a>
+
     <table class="table-border table">
         <thead>
             <tr>
                 <th>STT</th>
-                <th>Images</th>
                 <th>name</th>
                 <th>price</th>
+                <th>Images</th>
                 <th>desc</th>
                 <th>Option</th>
             </tr>
@@ -19,10 +22,11 @@
         <tbody  *ngIf="products && products.length">
             <tr *ngFor="let item of products; index as i">
                 <td>{{i+1}}</td>
-                <td></td>
                 <td>{{item.name}}</td>
-                <td>{{item.price}}</td>
-                <!-- <td>{{item.img}}</td> -->
+                <td >{{item.price}}</td>
+                <td width="50" >
+                    <img width="50" [src]="item.img" />
+                </td>                
                 <td>{{item.desc}}</td>
                 
                 <td>
@@ -32,5 +36,4 @@
             </tr>
         </tbody>
     </table>
-    <a href="admin/product/add" class="btn btn-success">Add Product</a>
     </div>
