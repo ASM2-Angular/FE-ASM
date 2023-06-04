@@ -1,0 +1,23 @@
+.login-button {
+    background-color: #4CAF50; /* Màu nền */
+    border: none; /* Xóa viền */
+    color: white; /* Màu chữ */
+    padding: 10px 20px; /* Khoảng cách nội dung */
+    text-align: center; /* Căn giữa nội dung */
+    text-decoration: none; /* Xóa gạch chân */
+    display: inline-block; /* Hiển thị dạng khối */
+    font-size: 16px; /* Cỡ chữ */
+    cursor: pointer; /* Hiệu ứng hover */
+    border-radius: 5px; /* Góc bo tròn */
+    transition-duration: 0.4s; /* Thời gian hiệu ứng */
+    margin-left: 50px;
+  }
+  
+  .login-button:hover {
+    background-color: #45a049; /* Màu nền hover */
+  }
+
+  .tt{
+    text-decoration: none;
+    color: antiquewhite;
+  }

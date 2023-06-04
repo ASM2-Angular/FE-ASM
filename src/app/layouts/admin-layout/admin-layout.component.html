@@ -1,17 +1,24 @@
-<div class="container">
-    <div class="row">
-        <div class="col-4">
-            <aside>
-                <ul>
-                    <li><a routerLink="dashboard">Dashboard</a></li>
-                    <li><a routerLink="product">Products</a></li>
-                </ul>
-            </aside>
+<!DOCTYPE html>
+<html>
+<head>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/home.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="user-avatar">
+            <img src="../../../assets/images/logo.png" alt="">
+            <p>PET SHOP</p>
+            
         </div>
-        <div class="col-8">
-            <main>
-                <router-outlet></router-outlet>
-            </main>
-        </div>
+        <ul>
+            <li><a href="#">List Product</a></li>
+            <li><a href="#">List Category</a></li>
+            <li><a href="#">List User</a></li>
+            <li><a href="#">List </a></li>
+        </ul>
     </div>
-</div>
+    <div class="content">
+     <router-outlet></router-outlet>
+    </div>
+</body>
+</html>

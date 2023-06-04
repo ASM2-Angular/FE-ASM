@@ -12,11 +12,15 @@ export class ProductListComponent {
   // @Output() onRemove = new EventEmitter<any>();
   products!: IProduct[]
   myName: string = "";
+  docs:any
 
   status: boolean = false;
   constructor(private productService: ProductService) {
     this.productService.getProducts().subscribe(data => {  
-      this.products = data
+      this.docs = data;
+      this.products = this.docs.docs;
+      console.log(this.products);
+      
     })
   }
 
@@ -27,26 +31,23 @@ export class ProductListComponent {
     this.status = !this.status; 
   }
 
-  removeItem(id: number) {
-    this.productService.deleteProduct(id).subscribe(() => {
-      this.products = this.products.filter(product => product.id !== id)  
-    })
-    // this.onRemove.emit(id);
+  // removeItem(_id: any) {
+  //   this.productService.deleteProduct(_id).subscribe(() => {
+  //     this.products = this.products.filter(product => product._id !== _id)  
+  //   })
+  //   // this.onRemove.emit(id);
+  // }
+
+  removeItem(_id: any) {
+    if (window.confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')) {
+      this.productService.deleteProduct(_id).subscribe(() => {
+        this.products = this.products.filter(product => product._id !== _id);
+      });
+      // this.onRemove.emit(id);
+    }
   }
+  
 }
 
 
 
-// ProductList.js
-// function ProductList({ products, onRemove }) {
-//   return <div>
-//     {
-//       products.map(product => product.name)
-// <button onClick={() => onRemove(product.id)}>Remove</button>
-//         < /div>
-//     }
-
-// App.js
-
-// <ProductList products={state} onRemove="onHandleRemove"/>
-// <app-product-list [products]="products" />
