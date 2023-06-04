@@ -19,21 +19,21 @@ export class ProductAddComponent {
     private formBuilder: FormBuilder,
     private productService: ProductService,
     private router: Router
-    ) { }
+  ) { }
 
-    onHandleSubmit() {
-      const product:IProduct = {
-        name: this.productForm.value.name || '', 
-        price: this.productForm.value.price || 0,
-        desc: this.productForm.value.desc || '',
+  onHandleSubmit() {
+    const product: IProduct = {
+      name: this.productForm.value.name || '',
+      price: this.productForm.value.price || 0,
+      desc: this.productForm.value.desc || '',
 
-      }
-      this.productService.addProduct(product).subscribe(data => {
-        console.log('product', product);
-        this.router.navigate(['/admin/product']);
-
-      }
-
-      )
     }
+    this.productService.addProduct(product).subscribe(data => {
+      console.log('product', product);
+      this.router.navigate(['/admin/product']);
+
+    }
+
+    )
+  }
 }

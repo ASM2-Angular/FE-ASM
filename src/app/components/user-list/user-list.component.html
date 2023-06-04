@@ -1,0 +1,32 @@
+<div class="container">
+    <p class="add-product">List user</p>
+    <div class="search-container">
+        <input type="text" placeholder="Nhập từ khóa tìm kiếm">
+        <button type="submit">Tìm kiếm</button>
+    </div>
+    <hr>
+    <table class="table-border table">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody *ngIf="user && user.length">
+            <tr *ngFor="let item of user; index as i">
+                <td>{{i+1}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.role}}</td>
+
+                <td>
+                    <button class="btn btn-outline-danger" (click)="removeUser(item._id)">Xóa</button>
+                    <a href="admin/user/{{item._id}}/edit" class="btn btn-outline-warning mt">Sửa</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

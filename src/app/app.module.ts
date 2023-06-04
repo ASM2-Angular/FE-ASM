@@ -21,6 +21,8 @@ import { ProductEditComponent } from './pages/product-edit/product-edit.componen
 import { ProductAddComponent } from './pages/product-add/product-add.component';
 import { SignLayoutComponent } from './layouts/sign-layout/sign-layout.component';
 import { SigninComponent } from './pages/signin/signin.component';
+import { UserEditComponent } from './pages/user-edit/user-edit.component';
+import { UserListComponent } from './components/user-list/user-list.component';
 
 
 // decorators
@@ -42,6 +44,8 @@ import { SigninComponent } from './pages/signin/signin.component';
     ProductAddComponent,
     SignLayoutComponent,
     SigninComponent,
+    UserEditComponent,
+    UserListComponent,
   ],
   imports: [
     BrowserModule,

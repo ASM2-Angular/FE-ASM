@@ -12,15 +12,15 @@ export class ProductListComponent {
   // @Output() onRemove = new EventEmitter<any>();
   products!: IProduct[]
   myName: string = "";
-  docs:any
+  docs: any
 
   status: boolean = false;
   constructor(private productService: ProductService) {
-    this.productService.getProducts().subscribe(data => {  
+    this.productService.getProducts().subscribe(data => {
       this.docs = data;
       this.products = this.docs.docs;
       console.log(this.products);
-      
+
     })
   }
 
@@ -28,7 +28,7 @@ export class ProductListComponent {
     this.myName = e.target.value;
   }
   toggle() {
-    this.status = !this.status; 
+    this.status = !this.status;
   }
 
   // removeItem(_id: any) {
