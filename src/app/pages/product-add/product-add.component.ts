@@ -22,13 +22,7 @@ export class ProductAddComponent {
     private router: Router
   ) { }
 
-<<<<<<< HEAD
-  onHandleSubmit() {
-    const product: IProduct = {
-      name: this.productForm.value.name || '',
-      price: this.productForm.value.price || 0,
-      desc: this.productForm.value.desc || '',
-=======
+
     onHandleSubmit() {
       const product:IProduct = {
         name: this.productForm.value.name || '', 
@@ -36,7 +30,6 @@ export class ProductAddComponent {
         img: this.productForm.value.img || '',
         desc: this.productForm.value.desc || ''
 
->>>>>>> 0446abb59cbd7799b4d35fa7fbf5e76968715a53
 
     }
     this.productService.addProduct(product).subscribe(data => {
