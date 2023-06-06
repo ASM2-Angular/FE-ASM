@@ -13,7 +13,7 @@
                 <div class="d-flex flex-column ">
                     <p class="text-muted mb-2">Continue with...</p>
                     <div class="d-flex align-items-center">
-                        <form >
+                        <form  [formGroup]="formSignin"   (ngSubmit)="onHandleSubmit()">
                             
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email:</label>
@@ -24,6 +24,9 @@
                                     placeholder="Email"
                                     class="form-control"
                                 />
+                            </div>
+                            <div *ngIf="formSignin.get('email')?.hasError('required') && submitted">
+                                <p class="tt">Email is Required</p>
                             </div>
                             
                             <div class="mb-3">
@@ -36,25 +39,24 @@
                                     class="form-control"
                                 />
                             </div>
-                            
-                           
+                            <div
+                            *ngIf="
+                                formSignin.get('password')?.hasError('password') && submitted
+                            "
+                        >
+                            <p class="tt">Mật khẩu là bắt buộc</p>
+                        </div>
+                        <div
+                            *ngIf="
+                                formSignin.get('password')?.hasError('minlength') && submitted
+                            "
+                        >
+                            <p class="tt">Mật khẩu phải trên 6 ký tự</p>
+                        </div>
 
-                            <div class="mb-3">
-                                <label for="confirmPassword" class="form-label"
-                                >Nhập lại mật khẩu:</label
-                                >
-                                <input
-                                    id="confirmPassword"
-                                    type="password"
-                                    formControlName="confirmPassword"
-                                    placeholder="Confirm Password"
-                                    class="form-control "
-                
-                                />
-                            </div>
                             <button type="submit" class="btn btn-outline-success  custom-button">Đăng nhập</button>
                         </form>
-                        
+
                     </div>
                     
                 </div>
