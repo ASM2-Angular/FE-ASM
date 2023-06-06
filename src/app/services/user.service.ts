@@ -22,4 +22,5 @@ export class UserService {
   updateUser(user: IUSser): Observable<IUSser> {
     return this.http.put<IUSser>(`http://localhost:8080/api/users/${user._id}`, user)
   }
+
 }
