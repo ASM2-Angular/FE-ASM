@@ -32,17 +32,18 @@ export class ProductEditComponent {
       // return;
       this.productService.getProduct(id!).subscribe(({ data }) => {
         this.product = data;
-        // console.log(data);
+        // console.log(data.desc);
         // console.log(this.product);
-
-
         this.productForm.patchValue({
           name: data.name,
           price: data.price,
           img: data.img,
           desc: data.desc
 
+
         })
+        console.log(this.productForm.value);
+
       }, error => console.log(error.message))
     }))
   }
