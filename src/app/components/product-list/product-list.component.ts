@@ -13,6 +13,7 @@ export class ProductListComponent {
   products!: IProduct[]
   myName: string = "";
   docs:any
+  searchTerm: string = "";
 
   status: boolean = false;
   constructor(private productService: ProductService) {
@@ -23,20 +24,15 @@ export class ProductListComponent {
       
     })
   }
-
-  setValue(e: any) {
-    this.myName = e.target.value;
+  search() {
+    if (this.searchTerm) {
+      this.products = this.products.filter(item =>
+        item.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    } else {
+      this.products = this.products;
+    }
   }
-  toggle() {
-    this.status = !this.status; 
-  }
-
-  // removeItem(_id: any) {
-  //   this.productService.deleteProduct(_id).subscribe(() => {
-  //     this.products = this.products.filter(product => product._id !== _id)  
-  //   })
-  //   // this.onRemove.emit(id);
-  // }
 
   removeItem(_id: any) {
     if (window.confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')) {
