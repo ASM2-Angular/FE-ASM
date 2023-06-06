@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -17,7 +18,7 @@ export class SignupComponent {
     confirmPassword: ['', [Validators.required]]
   }, { validators: this.checkPasswords });
 
-  constructor(private fb: FormBuilder, private auth: AuthService) {
+  constructor(private fb: FormBuilder, private auth: AuthService, private router:Router) {
 
   }
 
@@ -33,7 +34,14 @@ export class SignupComponent {
     if (this.formSignup.valid) {
       this.auth.signup(this.formSignup.value).subscribe(data => {
         console.log(data);
+
+        window.alert('Tạo tài khoản thành công');
+
+        this.router.navigate(['/signin']);
+
+
       });
     }
   }
+
 }
