@@ -1,8 +1,9 @@
 <div class="container">
     <p class="add-product">List Product</p>
     <div class="search-container">
-        <input type="text" placeholder="Nhập từ khóa tìm kiếm">
-        <button type="submit">Tìm kiếm</button>
+         <input type="text" placeholder="Nhập từ khóa tìm kiếm" [(ngModel)]="searchTerm" >
+        <button type="submit" (click)="search()">Tìm kiếm</button> 
+
         
     </div>
     <hr>
