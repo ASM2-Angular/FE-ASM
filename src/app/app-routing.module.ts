@@ -16,6 +16,8 @@ import { SignLayoutComponent } from './layouts/sign-layout/sign-layout.component
 import { SigninComponent } from './pages/signin/signin.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserEditComponent } from './pages/user-edit/user-edit.component';
+import { AccountComponent } from './pages/account/account.component';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 
 const routes: Routes = [
   {
@@ -23,7 +25,9 @@ const routes: Routes = [
       { path: '', component: HomePageComponent },
       { path: 'about', component: AboutComponent },
       { path: 'contact', component: ContactComponent },
-      { path: 'product/:id', component: ProductDeitalComponent }
+      { path: 'product/:id', component: ProductDeitalComponent },
+      { path: 'account', component: AccountComponent },
+      { path: 'account/changepassword', component: ChangePasswordComponent },
     ]
   },
   {

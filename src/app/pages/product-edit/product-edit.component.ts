@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { IProduct } from 'src/app/interfaces/Product';
 import { ProductService } from 'src/app/services/product.service';
-import{ Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-edit',
@@ -15,11 +15,11 @@ export class ProductEditComponent {
   productForm = this.formBuilder.group({
     name: ['', [Validators.required, Validators.minLength(4)]],
     price: [0],
-    img: ['',Validators.required],
+    img: ['', Validators.required],
     desc: ['', [Validators.required, Validators.minLength(4)]]
   })
-docs:any;
-products:any;
+  docs: any;
+  products: any;
   constructor(
     private formBuilder: FormBuilder,
     private productService: ProductService,
@@ -30,15 +30,17 @@ products:any;
       const id = (params.get('id'));  //
       // console.log(params.get('id'));
       // return;
-      this.productService.getProduct(id!).subscribe(({data}) => {
+      this.productService.getProduct(id!).subscribe(({ data }) => {
         this.product = data;
         // console.log(data);
         // console.log(this.product);
+
+
         this.productForm.patchValue({
           name: data.name,
           price: data.price,
-          img: data.img, 
-          desc: data.desc 
+          img: data.img,
+          desc: data.desc
 
         })
       }, error => console.log(error.message))

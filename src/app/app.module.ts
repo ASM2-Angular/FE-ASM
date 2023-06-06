@@ -23,6 +23,8 @@ import { SignLayoutComponent } from './layouts/sign-layout/sign-layout.component
 import { SigninComponent } from './pages/signin/signin.component';
 import { UserEditComponent } from './pages/user-edit/user-edit.component';
 import { UserListComponent } from './components/user-list/user-list.component';
+import { AccountComponent } from './pages/account/account.component';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 
 
 // decorators
@@ -46,6 +48,8 @@ import { UserListComponent } from './components/user-list/user-list.component';
     SigninComponent,
     UserEditComponent,
     UserListComponent,
+    AccountComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,
