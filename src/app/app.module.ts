@@ -23,12 +23,10 @@ import { SignLayoutComponent } from './layouts/sign-layout/sign-layout.component
 import { SigninComponent } from './pages/signin/signin.component';
 import { UserEditComponent } from './pages/user-edit/user-edit.component';
 import { UserListComponent } from './components/user-list/user-list.component';
-<<<<<<< HEAD
 import { AccountComponent } from './pages/account/account.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
-=======
 import { CartProductComponent } from './pages/cart-product/cart-product.component';
->>>>>>> 6eebfe8d06bd4db3410d4884f9a327247604e1e0
+
 
 
 // decorators
@@ -52,12 +50,10 @@ import { CartProductComponent } from './pages/cart-product/cart-product.componen
     SigninComponent,
     UserEditComponent,
     UserListComponent,
-<<<<<<< HEAD
     AccountComponent,
     ChangePasswordComponent,
-=======
     CartProductComponent,
->>>>>>> 6eebfe8d06bd4db3410d4884f9a327247604e1e0
+
   ],
   imports: [
     BrowserModule,
