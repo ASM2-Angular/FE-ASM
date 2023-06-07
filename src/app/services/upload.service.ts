@@ -11,7 +11,6 @@ FOLDER_NAME : string = "upload-img" ;
 
   constructor(private http: HttpClient) { }
   uploadFile(file: File) {
-    console.log(file);
     
     
     const formData = new FormData();
