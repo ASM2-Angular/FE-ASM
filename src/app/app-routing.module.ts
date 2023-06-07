@@ -16,6 +16,8 @@ import { SignLayoutComponent } from './layouts/sign-layout/sign-layout.component
 import { SigninComponent } from './pages/signin/signin.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserEditComponent } from './pages/user-edit/user-edit.component';
+import { AccountComponent } from './pages/account/account.component';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { CartProductComponent } from './pages/cart-product/cart-product.component';
 import { AuthGuard } from './auth.guard';
 
@@ -26,7 +28,12 @@ const routes: Routes = [
       { path: 'about', component: AboutComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'product/:id', component: ProductDeitalComponent },
-      {path:'cart',component:CartProductComponent}
+
+      { path: 'account', component: AccountComponent },
+      { path: 'account/changepassword', component: ChangePasswordComponent },
+
+      { path: 'cart', component: CartProductComponent },
+
     ]
   },
   {
@@ -44,7 +51,7 @@ const routes: Routes = [
       { path: 'product/:id/edit', component: ProductEditComponent },
       { path: 'user', component: UserListComponent },
       { path: 'user/:id/edit', component: UserEditComponent }
-      
+
     ]
   },
   { path: '**', component: PageNotFoundComponent }
