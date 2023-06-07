@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { IProduct } from 'src/app/interfaces/Product';
 import { ProductService } from 'src/app/services/product.service';
 import { Router } from '@angular/router';
+import { UploadService } from 'src/app/services/upload.service';
 
 @Component({
   selector: 'app-product-edit',
@@ -24,7 +25,8 @@ export class ProductEditComponent {
     private formBuilder: FormBuilder,
     private productService: ProductService,
     private router: ActivatedRoute,
-    private route2: Router
+    private route2: Router,
+    private uploadService: UploadService,
   ) {
     this.router.paramMap.subscribe((params => {
       const id = (params.get('id'));  //
@@ -33,7 +35,7 @@ export class ProductEditComponent {
       this.productService.getProduct(id!).subscribe(({ data }) => {
         this.product = data;
         // console.log(data.desc);
-        // console.log(this.product);
+        console.log(this.product);
         this.productForm.patchValue({
           name: data.name,
           price: data.price,
@@ -46,6 +48,19 @@ export class ProductEditComponent {
 
       }, error => console.log(error.message))
     }))
+  }
+  HandleGetfile(file: any) {
+    console.log(file.target.files[0]);
+    const fileArr = file.target.files[0];
+
+
+
+    this.uploadService.uploadFile(fileArr).subscribe(data => {
+      console.log(data.url);
+      this.productForm.patchValue({
+        img: data.url
+      })
+    })
   }
   onHandleSubmit() {
     if (this.productForm.valid) {
