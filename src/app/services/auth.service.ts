@@ -14,7 +14,11 @@ signup(data: any): Observable<any> {
   return this.http.post(`${this.API_URL}/signup`, data);
 }
 
-signIn(data: any): Observable<any> {
-  return this.http.post(`${this.API_URL}/signin`, data);
+signin(user: any): Observable<any> {
+  return this.http.post(`${this.API_URL}/signin`, user)
 }
+isAuthenticated(): any {
+  return JSON.parse(localStorage.getItem('credential')!) || {};
+}
+
 }

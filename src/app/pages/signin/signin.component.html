@@ -13,48 +13,39 @@
                 <div class="d-flex flex-column ">
                     <p class="text-muted mb-2">Continue with...</p>
                     <div class="d-flex align-items-center">
-                        <form  [formGroup]="formSignin"   (ngSubmit)="onHandleSubmit()">
-                            
+
+                        <form [formGroup]="formSignin" (ngSubmit)="onHandleSubmit()">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email:</label>
-                                <input
-                                    id="email"
-                                    type="email"
-                                    formControlName="email"
-                                    placeholder="Email"
-                                    class="form-control"
-                                />
-                            </div>
-                            <div *ngIf="formSignin.get('email')?.hasError('required') && submitted">
-                                <p class="tt">Email is Required</p>
-                            </div>
-                            
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Mật khẩu:</label>
-                                <input
-                                    id="password"
-                                    type="password"
-                                    formControlName="password"
-                                    placeholder="Password"
-                                    class="form-control"
-                                />
+                                <input type="text" placeholder="Email" formControlName="email"   class="form-control"/>
                             </div>
                             <div
-                            *ngIf="
-                                formSignin.get('password')?.hasError('password') && submitted
-                            "
-                        >
-                            <p class="tt">Mật khẩu là bắt buộc</p>
-                        </div>
-                        <div
-                            *ngIf="
-                                formSignin.get('password')?.hasError('minlength') && submitted
-                            "
-                        >
-                            <p class="tt">Mật khẩu phải trên 6 ký tự</p>
-                        </div>
-
-                            <button type="submit" class="btn btn-outline-success  custom-button">Đăng nhập</button>
+                              *ngIf="
+                                formSignin.get('email')?.hasError('required') &&
+                                (formSignin.get('email')?.touched || formSignin.get('email')?.dirty)
+                              "
+                            >
+                              Email is Required
+                            </div>
+                            <div
+                              *ngIf="
+                                formSignin.get('email')?.hasError('email') &&
+                                (formSignin.get('email')?.touched || formSignin.get('email')?.dirty)
+                              "
+                            >
+                              Invalid email
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password:</label>
+                                <input type="password" placeholder="Password" formControlName="password"  class="form-control"/>
+                            </div>
+                            <div
+                              *ngIf="
+                                formSignin.get('password')?.hasError('required') &&
+                                (formSignin.get('password')?.touched || formSignin.get('email')?.dirty)
+                              "
+                            ></div>
+                            <button type="submit" class="btn btn-outline-success custom-button">Đăng Nhập</button>
                         </form>
 
                     </div>
