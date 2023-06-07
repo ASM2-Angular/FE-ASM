@@ -17,6 +17,7 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserEditComponent } from './pages/user-edit/user-edit.component';
 import { CartProductComponent } from './pages/cart-product/cart-product.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -35,7 +36,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'admin', component: AdminLayoutComponent, children: [
+    path: 'admin', component: AdminLayoutComponent, canActivate: [AuthGuard],children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'product', component: ProductListComponent },
