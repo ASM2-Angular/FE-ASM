@@ -11,9 +11,9 @@ import { UploadService } from 'src/app/services/upload.service';
 })
 export class ProductAddComponent {
   productForm = this.formBuilder.group({
-    name: ['', [Validators.required, Validators.minLength(4)]], 
+    name: ['', [Validators.required, Validators.minLength(4)]],
     price: [0],
-    img: ['',Validators.required],
+    img: ['', Validators.required],
     desc: ['', [Validators.required, Validators.minLength(4)]]
   })
 
@@ -21,15 +21,15 @@ export class ProductAddComponent {
     private formBuilder: FormBuilder,
     private productService: ProductService,
     private router: Router,
-    private uploadService: UploadService 
+    private uploadService: UploadService
   ) { }
 
   HandleGetfile(file: any) {
     console.log(file.target.files[0]);
     const fileArr = file.target.files[0];
 
-    
-    
+
+
     this.uploadService.uploadFile(fileArr).subscribe(data => {
       console.log(data.url);
       this.productForm.patchValue({
@@ -38,12 +38,12 @@ export class ProductAddComponent {
     })
   }
 
-    onHandleSubmit() {
-      const product:IProduct = {
-        name: this.productForm.value.name || '', 
-        price: this.productForm.value.price || 0,
-        img: this.productForm.value.img || '',
-        desc: this.productForm.value.desc || ''
+  onHandleSubmit() {
+    const product: IProduct = {
+      name: this.productForm.value.name || '',
+      price: this.productForm.value.price || 0,
+      img: this.productForm.value.img || '',
+      desc: this.productForm.value.desc || ''
 
 
     }

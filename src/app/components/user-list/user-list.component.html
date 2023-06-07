@@ -11,6 +11,7 @@
                 <th>STT</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Ảnh</th>
                 <th>Role</th>
                 <th></th>
             </tr>
@@ -20,6 +21,9 @@
                 <td>{{i+1}}</td>
                 <td>{{item.name}}</td>
                 <td>{{item.email}}</td>
+                <td width="50">
+                    <img width="200" [src]="item.img" />
+                </td>
                 <td>{{item.role}}</td>
 
                 <td>
