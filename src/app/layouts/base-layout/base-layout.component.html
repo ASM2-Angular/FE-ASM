@@ -14,7 +14,6 @@
                 <li class="nav-item"><a class="nav-link" routerLink="#!">Services</a></li>
             </ul>
         </div>
-
         <div *ngIf="user" class="user-info">
             <img [src]="user.img" width="100" class="avatar">
             <p style="color: white;" class="user-name">Xin chào <a routerLink="account">{{ user.name }}</a></p>
