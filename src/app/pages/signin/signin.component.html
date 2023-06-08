@@ -25,7 +25,7 @@
                                 (formSignin.get('email')?.touched || formSignin.get('email')?.dirty)
                               "
                             >
-                              Email is Required
+                              <p class="tt">Email is Required</p>
                             </div>
                             <div
                               *ngIf="
@@ -33,7 +33,7 @@
                                 (formSignin.get('email')?.touched || formSignin.get('email')?.dirty)
                               "
                             >
-                              Invalid email
+                              <p class="tt">Invalid email</p>
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password:</label>

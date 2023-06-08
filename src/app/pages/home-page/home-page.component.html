@@ -81,11 +81,11 @@
                     <h2 class="fw-bolder">Các Sản Phẩm Bán Chạy</h2>
                     <p class="lead mb-0">Từ các thương hiệu nổi tiếng</p>
                 </div>
-                <div class="row gx-5 justify-content-center mb-5">
+                <div class="row gx-5 justify-content-center mb-5 mb">
                     <!-- Gio Hang-->
                     <div *ngFor="let product of products" class=" col-lg-6 col-xl-4">
-                        <div class="card mb-5 mb-xl-0">
-                            <div class="card-body p-5">
+                        <div class="card mb-5 mb-xl-0 ">
+                            <div class="card-body p-5 ">
                                 <img src="{{product.img}}" class="img-fluid custom-height">
                                 
                                 <ul class="list-unstyled mb-4">
@@ -106,7 +106,9 @@
                                         Hạn sử dụng lên tới 2 năm
                                     </li>
                                 </ul>
-                                <div class="d-grid"><a class="btn btn-outline-primary" href="#!">Choose plan</a></div>
+                                <div class="d-grid">
+                                    <a class="btn btn-outline-primary">Choose plan</a>
+                                </div>
                             </div>
                         </div>
                     </div>

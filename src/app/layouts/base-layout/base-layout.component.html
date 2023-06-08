@@ -17,11 +17,11 @@
       </ul>
     </div>
 
-    <div class="user-info" *ngIf="user">
-      <img [src]="user.img" width="100" class="avatar">
-      <p style="color: white;" class="user-name">Xin chào: <a routerLink="account" class="tt">{{ user.name }}</a></p>
-      <button class="btn btn-danger" (click)="logout()">Đăng Xuất</button>
+    <div class="user-info cc" *ngIf="user">
+      <img [src]="user.img" width="50" class="avatar">
+      <p style="color: #ffffff;" class="user-name">Xin chào: <a routerLink="account" class="tt">{{ user.name }}</a></p>
     </div>
+    <button class="btn btn-danger" (click)="logout()">Đăng Xuất</button>
 
     <div *ngIf="!user">
       <button class="login-button"><a routerLink="/signin" class="tt">Đăng Nhập</a></button>
