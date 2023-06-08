@@ -17,7 +17,8 @@ export class UserEditComponent {
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
     img: ['', [Validators.required]],
-    role: ['']
+    role: [''],
+    imgNew: ['']
   })
   data: any;
 
@@ -58,6 +59,7 @@ export class UserEditComponent {
   }
   onHandleSubmit() {
     if (this.userForm.valid) {
+
       const user: IUSser = {
         _id: this.user._id,
         name: this.userForm.value.name || "",

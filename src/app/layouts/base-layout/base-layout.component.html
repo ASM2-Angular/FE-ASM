@@ -17,7 +17,7 @@
 
         <div *ngIf="user" class="user-info">
             <img [src]="user.img" width="100" class="avatar">
-            <p style="color: white;" class="user-name">Xin chào {{ user.name }}</p>
+            <p style="color: white;" class="user-name">Xin chào <a routerLink="account">{{ user.name }}</a></p>
             <button class="btn btn-danger" (click)="logout()">Đăng Xuất</button>
         </div>
 
