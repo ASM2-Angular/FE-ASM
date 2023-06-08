@@ -26,7 +26,7 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { AccountComponent } from './pages/account/account.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { CartProductComponent } from './pages/cart-product/cart-product.component';
-import { AuthInterceptor } from './auth.interceptor';
+// import { AuthInterceptor } from './auth.interceptor';
 
 
 
@@ -63,11 +63,11 @@ import { AuthInterceptor } from './auth.interceptor';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptor,
-    multi: true
-}],
+//   providers: [{
+//     provide: HTTP_INTERCEPTORS,
+//     useClass: AuthInterceptor,
+//     multi: true
+// }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

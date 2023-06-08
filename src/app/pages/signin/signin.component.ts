@@ -21,10 +21,10 @@ export class SigninComponent {
     if (this.formSignin.valid) {
       this.auth.signin(this.formSignin.value).subscribe(data => {
         localStorage.setItem('credential', JSON.stringify(data))
-        
       })
-
+      window.alert("Đăng Nhập Thành Công !")
       
+      this.router.navigate(['']);
       
     }
   }
