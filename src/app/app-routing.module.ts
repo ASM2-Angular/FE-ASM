@@ -29,8 +29,8 @@ const routes: Routes = [
       { path: 'contact', component: ContactComponent },
       { path: 'product/:id', component: ProductDeitalComponent },
 
-      { path: 'account', component: AccountComponent },
-      { path: 'account/changepassword', component: ChangePasswordComponent },
+      { path: 'account/:id', component: AccountComponent },
+      { path: 'account/:id/changepassword', component: ChangePasswordComponent },
 
       { path: 'cart', component: CartProductComponent },
 
@@ -43,7 +43,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'admin', component: AdminLayoutComponent, canActivate: [AuthGuard],children: [
+    path: 'admin', component: AdminLayoutComponent, canActivate: [AuthGuard], children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'product', component: ProductListComponent },

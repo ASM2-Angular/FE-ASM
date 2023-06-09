@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IUSser } from 'src/app/interfaces/User';
 import { AuthService } from 'src/app/services/auth.service';
 import { UploadService } from 'src/app/services/upload.service';
@@ -17,11 +17,27 @@ export class AccountComponent {
     private accountService: UserService,
     private fb: FormBuilder,
     private uploadService: UploadService,
-    private authService: AuthService,
-    private router: Router,
-  ) { }
+    private router: ActivatedRoute
+  ) {
+    this.router.paramMap.subscribe((params => {
+      const id = (params.get('id'));
+
+      this.accountService.getUser(id!).subscribe(({ data }) => {
+        this.accout = data;
+
+        this.accountForm.patchValue({
+          name: data.name,
+          email: data.email,
+          password: data.password,
+          img: data.img,
+          role: data.role
+
+        })
+      }, error => console.log(error.message))
+    }))
+  }
   accountForm = this.fb.group({
-    _id: [{ value: '', disabled: true }],
+
     name: ['', [Validators.required, Validators.minLength(4)]],
     email: ['', [Validators.required, Validators.email]],
     img: [''],
@@ -39,7 +55,7 @@ export class AccountComponent {
 
 
       this.accountForm.patchValue({
-        _id: user._id,
+
         email: user.email,
         name: user.name,
         img: user.img,
@@ -61,26 +77,24 @@ export class AccountComponent {
   }
 
   onHandleSubmit() {
-
     if (this.accountForm.valid) {
-      const accout: IUSser = {
-        _id: this.accout._id,
+      const id = this.accout._id; // Lấy giá trị id từ accout
+      const account: IUSser = {
+        _id: id,
         name: this.accountForm.value.name || "",
         email: this.accountForm.value.email || "",
         img: this.accountForm.value.img || "",
-        role: this.accout.role,
-        password: this.accout.password
+        role: this.accountForm.value.role || "",
+        password: this.accountForm.value.password || ""
+      };
 
-
-      }
-
-      this.accountService.updateUser(this.accout).subscribe(updatedUser => {
+      this.accountService.updateUser(account).subscribe(updatedUser => {
         console.log('updatedUser', updatedUser);
-        // Cập nhật thông tin người dùng thành công
         this.accout = updatedUser; // Cập nhật thông tin người dùng trong component
-        localStorage.setItem('credential', JSON.stringify(this.accout));
-        this.router.navigate(['account']);
+        alert('Sửa thành công');
+        window.location.reload();
       });
     }
   }
+
 }

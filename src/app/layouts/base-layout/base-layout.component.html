@@ -1,13 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container px-5">
-    <p class="text-white t">
-      <img src="../../../assets/images/dog.png" class="navbar-brand font-monospace fw-bold rounded" width="20%">
-      Pet Shop
-    </p>
+
+    <p class="text-white  t"><img src="../../../assets/images/dog.png"
+        class="navbar-brand font-monospace fw-bold  rounded" width="20%"> Pet Shop </p>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+        class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link" routerLink="">Home</a></li>
@@ -16,31 +14,24 @@
         <li class="nav-item"><a class="nav-link" routerLink="#!">Services</a></li>
       </ul>
     </div>
-
-    <div class="user-info cc" *ngIf="user">
-      <img [src]="user.img" width="50" class="avatar">
-      <p style="color: #ffffff;" class="user-name">Xin chào: <a routerLink="account" class="tt">{{ user.name }}</a></p>
+    <div *ngIf="user" class="user-info">
+      <img [src]="user.img" width="100" class="avatar">
+      <p style="color: white;" class="user-name"> Xin chào <a routerLink="account/{{user._id}}">{{ user.name }}</a></p>
+      <button class="btn btn-danger" (click)="logout()">Đăng Xuất</button>
     </div>
-    <button class="btn btn-danger" (click)="logout()">Đăng Xuất</button>
-
     <div *ngIf="!user">
       <button class="login-button"><a routerLink="/signin" class="tt">Đăng Nhập</a></button>
     </div>
   </div>
 </nav>
-
 <!-- Header-->
 <router-outlet></router-outlet>
-
-
 <!-- Footer-->
 <footer class="py-5 bg-dark">
-    <div class="container px-5">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p>
-    </div>
+  <div class="container px-5">
+    <p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p>
+  </div>
 </footer>
-
-
 <link
-    href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,300;0,400;0,600;1,700&display=swap"
-    rel="stylesheet">
+  href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,300;0,400;0,600;1,700&display=swap"
+  rel="stylesheet">
