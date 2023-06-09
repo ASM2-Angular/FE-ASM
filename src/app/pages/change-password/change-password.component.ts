@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { IUSser } from 'src/app/interfaces/User';
 import { UserService } from 'src/app/services/user.service';
+import * as bcrypt from 'bcryptjs';
 
 @Component({
   selector: 'app-change-password',
@@ -41,7 +42,15 @@ export class ChangePasswordComponent {
   }
   checkOldPassword(): boolean {
     const oldPassword = this.accountForm.value.password;
-    return oldPassword === this.accout.password;
+    const hashedPassword = this.accout.password;
+
+    if (oldPassword === null || oldPassword === undefined) {
+      return false; // Không có mật khẩu nhập vào
+    }
+
+    const isPasswordMatched = bcrypt.compareSync(oldPassword, hashedPassword);
+
+    return isPasswordMatched;
   }
   onHandleSubmit() {
     if (this.accountForm.valid) {
