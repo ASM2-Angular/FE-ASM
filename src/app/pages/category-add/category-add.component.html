@@ -1,0 +1,11 @@
+<div>
+    <p class="add-product">Add Category</p>
+    <form [formGroup]="categoryForm" (ngSubmit)="onHandleSubmit()">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" class="form-control" formControlName="name">
+        </div>
+        <button type="submit" class="mb btn btn-outline-success" [disabled]="!categoryForm.valid">Submit</button>
+    </form>
+    <a href="/admin/category" class="home-button">Back Home</a>
+</div>

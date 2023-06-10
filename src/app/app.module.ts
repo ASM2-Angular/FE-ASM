@@ -26,6 +26,9 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { AccountComponent } from './pages/account/account.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { CartProductComponent } from './pages/cart-product/cart-product.component';
+import { CategoryListComponent } from './components/category-list/category-list.component';
+import { CategoryAddComponent } from './pages/category-add/category-add.component';
+import { CategoryEditComponent } from './pages/category-edit/category-edit.component';
 
 
 
@@ -53,6 +56,9 @@ import { CartProductComponent } from './pages/cart-product/cart-product.componen
     AccountComponent,
     ChangePasswordComponent,
     CartProductComponent,
+    CategoryListComponent,
+    CategoryAddComponent,
+    CategoryEditComponent,
 
   ],
   imports: [

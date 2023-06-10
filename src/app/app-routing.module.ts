@@ -20,7 +20,9 @@ import { AccountComponent } from './pages/account/account.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { CartProductComponent } from './pages/cart-product/cart-product.component';
 import { AuthGuard } from './auth.guard';
-
+import { CategoryListComponent } from './components/category-list/category-list.component';
+import { CategoryAddComponent } from './pages/category-add/category-add.component';
+import { CategoryEditComponent } from './pages/category-edit/category-edit.component';
 const routes: Routes = [
   {
     path: '', component: BaseLayoutComponent, children: [
@@ -43,15 +45,17 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'admin', component: AdminLayoutComponent, canActivate: [AuthGuard],children: [
+    path: 'admin', component: AdminLayoutComponent, canActivate: [AuthGuard], children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'product', component: ProductListComponent },
       { path: 'product/add', component: ProductAddComponent },
       { path: 'product/:id/edit', component: ProductEditComponent },
       { path: 'user', component: UserListComponent },
-      { path: 'user/:id/edit', component: UserEditComponent }
-
+      { path: 'category', component: CategoryListComponent },
+      { path: 'user/:id/edit', component: UserEditComponent },
+      { path: 'category/add', component: CategoryAddComponent },
+      { path: 'category/:id/edit', component: CategoryEditComponent },
     ]
   },
   { path: '**', component: PageNotFoundComponent }

@@ -1,0 +1,11 @@
+<div>
+    <p class="add-category">Edit Category</p>
+    <form (ngSubmit)="onHandleSubmit()" [formGroup]="categoryForm" class="my-4">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" class="form-control" formControlName="name" placeholder="Name">
+        </div>
+        <button type="submit" class="btn btn-primary home-button" [disabled]="!categoryForm.valid">Edit</button>
+    </form>
+    <a href="/admin/category" class="home-button">Back Home</a>
+</div>
