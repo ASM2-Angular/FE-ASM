@@ -9,6 +9,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductListComponent {
   products!: IProduct[]
+
   docs: any
   searchTerm: string = "";
   items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6', 'Item 7', 'Item 8', 'Item 9', 'Item 10', 'Item 11'];
@@ -18,12 +19,15 @@ export class ProductListComponent {
   endIndex = this.pageSize;
   pages: number[] = [];
 
+
   constructor(private productService: ProductService) {
     this.calculatePages();
     this.productService.getProducts().subscribe(data => {
       this.docs = data;
       this.products = this.docs.docs;
       console.log(this.products);
+
+
 
     })
   }
