@@ -1,8 +1,24 @@
+<style>
+    .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .pagination a {
+        margin: 0 5px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
 <div class="container">
     <p class="add-product">List Product</p>
     <div class="search-container">
+
         <input type="text" placeholder="Nhập từ khóa tìm kiếm" [(ngModel)]="searchTerm">
         <button type="submit" (click)="search()">Tìm kiếm</button>
+
 
 
     </div>
@@ -20,21 +36,34 @@
                 <th>Option</th>
             </tr>
         </thead>
-        <tbody *ngIf="products && products.length">
+        <<<<<<< HEAD <tbody *ngIf="products && products.length">
             <tr *ngFor="let item of products; index as i">
-                <td>{{i+1}}</td>
-                <td>{{item.name}}</td>
-                <td>{{item.price}}</td>
-                <td width="50">
-                    <img width="50" [src]="item.img" />
-                </td>
-                <td>{{item.desc}}</td>
+                =======
+                <tbody *ngIf="products && products.length" class="mb">
+                    <tr *ngFor="let item of products | slice:startIndex:endIndex; index as i">
+                        >>>>>>> 5255f226d12b213e8ca55266b11d97b9bbce41c1
+                        <td>{{i+1}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.price}}</td>
+                        <td width="50">
+                            <img width="50" [src]="item.img" />
+                        </td>
+                        <td>{{item.desc}}</td>
 
-                <td>
-                    <button class="btn btn-outline-danger" (click)="removeItem(item._id)">Xóa</button>
-                    <a href="admin/product/{{item._id}}/edit" class="btn btn-outline-warning mt">Sửa</a>
-                </td>
-            </tr>
-        </tbody>
+                        <td>
+                            <button class="btn btn-outline-danger" (click)="removeItem(item._id)">Xóa</button>
+                            <a href="admin/product/{{item._id}}/edit" class="btn btn-outline-warning mt">Sửa</a>
+                        </td>
+                    </tr>
+                </tbody>
     </table>
+    <<<<<<< HEAD=======<div class="pagination">
+        <a class="btn btn-outline-success" (click)="prevPage()">Previous</a>
+        <ng-container *ngFor="let page of pages">
+            <a class="btn btn-outline-success" (click)="goToPage(page)" [class.active]="currentPage === page">{{ page
+                }}</a>
+        </ng-container>
+        <a class="btn btn-outline-success" (click)="nextPage()">Next</a>
+</div>
+>>>>>>> 5255f226d12b213e8ca55266b11d97b9bbce41c1
 </div>

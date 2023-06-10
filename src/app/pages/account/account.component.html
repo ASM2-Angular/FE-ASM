@@ -6,26 +6,32 @@
         <input type="submit" class="btn btn-link" value="Đổi mật khẩu" routerLink="changepassword">
         <hr>
 
-        <div class="row">
-            <div class="container col-8">
-                <form class="container">
-                    <div class="mb-3 mt-3">
-                        <label class="form-label">ID:</label>
-                        <input type="text" class="form-control" disabled />
-                    </div>
+        <form class="container" [formGroup]="accountForm" (ngSubmit)="onHandleSubmit()">
+            <div class="row">
+                <div class="container col-8">
                     <div class="mb-3 mt-3">
                         <label class="form-label">Email:</label>
-                        <input type="email" class="form-control" />
+                        <input type="email" class="form-control" formControlName="email" />
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Họ tên:</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="name">
                     </div>
                     <button type="submit" class="btn btn-primary align-center">Lưu</button>
-                </form>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="img" class="form-label">AVT:</label>
+                        <img [src]="accountForm.get('img')?.value" alt="" width="100%">
+                    </div>
+                    <div class="form-group">
+                        <label for="img">Chọn ảnh</label>
+                        <input type="file" id="img" class="form-control" formControlName="imgNew"
+                            (change)="HandleGetfile($event)">
+                    </div>
+                </div>
             </div>
-            <div class="col-4"></div>
-        </div>
+        </form>
 
 
     </div>

@@ -31,8 +31,8 @@ const routes: Routes = [
       { path: 'contact', component: ContactComponent },
       { path: 'product/:id', component: ProductDeitalComponent },
 
-      { path: 'account', component: AccountComponent },
-      { path: 'account/changepassword', component: ChangePasswordComponent },
+      { path: 'account/:id', component: AccountComponent },
+      { path: 'account/:id/changepassword', component: ChangePasswordComponent },
 
       { path: 'cart', component: CartProductComponent },
 

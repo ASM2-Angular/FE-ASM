@@ -3,5 +3,6 @@ export interface IUSser {
     email: string;
     name: string;
     password: string;
+    img: string;
     role: string;
 }

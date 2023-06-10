@@ -27,9 +27,6 @@ export class ProductAddComponent {
   HandleGetfile(file: any) {
     console.log(file.target.files[0]);
     const fileArr = file.target.files[0];
-
-
-
     this.uploadService.uploadFile(fileArr).subscribe(data => {
       console.log(data.url);
       this.productForm.patchValue({

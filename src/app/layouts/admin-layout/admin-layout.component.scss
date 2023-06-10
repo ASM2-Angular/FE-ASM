@@ -69,3 +69,13 @@ body {
 .user-avatar p {
     margin: 0;
 }
+
+.cc{
+    display: flex;
+}
+.tt{
+    text-decoration: none;
+    p:hover{
+        color: aquamarine;
+    }
+}

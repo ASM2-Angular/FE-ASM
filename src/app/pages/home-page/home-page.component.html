@@ -20,6 +20,27 @@
             font-family: 'Poppins', sans-serif;
 
         }
+
+        <<<<<<< HEAD=======.pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination a {
+            margin: 0 5px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .pagination a.active {
+            background-color: #ccc;
+            color: #fff;
+        }
+
+        >>>>>>>5255f226d12b213e8ca55266b11d97b9bbce41c1
     </style>
 </head>
 
@@ -91,40 +112,63 @@
                 <h2 class="fw-bolder">Các Sản Phẩm Bán Chạy</h2>
                 <p class="lead mb-0">Từ các thương hiệu nổi tiếng</p>
             </div>
+
             <div class="row gx-5 justify-content-center mb-5">
                 <!-- Gio Hang-->
                 <div *ngFor="let product of products" class=" col-lg-6 col-xl-4">
                     <div class="card mb-5 mb-xl-0">
                         <div class="card-body p-5">
-                            <img src="{{product.img}}" class="img-fluid custom-height">
 
-                            <ul class="list-unstyled mb-4">
-                                <li class="mb-2">
-                                    <i class="text-bold fs-2 text"></i>
-                                    <strong>{{product.name}}</strong>
+                            <div class="row gx-5 justify-content-center mb-5 mb">
+                                <!-- Gio Hang-->
+                                <div *ngFor="let product of products | slice:startIndex:endIndex"
+                                    class=" col-lg-6 col-xl-4">
+                                    <div class="card mb-5 mb-xl-0 ">
+                                        <div class="card-body p-5 ">
+                                            <img src="{{product.img}}" class="img-fluid custom-height">
 
-                                </li>
-                                <li class="mb-2">
-                                    <strong class=" fs-3 text text-danger">{{product.price}} $</strong>
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-check text-primary"></i>
-                                    {{product.desc}}
-                                </li>
-                                <li class="mb-2">
-                                    <i class="bi bi-check text-primary"></i>
-                                    Hạn sử dụng lên tới 2 năm
-                                </li>
-                            </ul>
-                            <div class="d-grid"><a class="btn btn-outline-primary"
-                                    routerLink="product/{{product._id}}">Choose
-                                    plan</a></div>
+                                            <ul class="list-unstyled mb-4">
+                                                <li class="mb-2">
+                                                    <i class="text-bold fs-2 text"></i>
+                                                    <strong>{{product.name}}</strong>
+
+                                                </li>
+                                                <li class="mb-2">
+                                                    <strong class=" fs-3 text text-danger">{{product.price}} $</strong>
+                                                </li>
+                                                <li class="mb-2">
+                                                    <i class="bi bi-check text-primary"></i>
+                                                    {{product.desc}}
+                                                </li>
+                                                <li class="mb-2">
+                                                    <i class="bi bi-check text-primary"></i>
+                                                    Hạn sử dụng lên tới 2 năm
+                                                </li>
+                                            </ul>
+                                            <div class="d-grid"><a class="btn btn-outline-primary"
+                                                    routerLink="product/{{product._id}}">Choose
+                                                    plan</a></div>
+
+                                            <div class="d-grid">
+                                                <a class="btn btn-outline-primary">Choose plan</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Pricing card pro-->
+
+
+
+                                <div class="pagination">
+                                    <a (click)="prevPage()">Previous</a>
+                                    <ng-container *ngFor="let page of pages">
+                                        <a (click)="goToPage(page)" [class.active]="currentPage === page">{{ page }}</a>
+                                    </ng-container>
+                                    <a (click)="nextPage()">Next</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <!-- Pricing card pro-->
-            </div>
-        </div>
     </section>
     <!-- Testimonials section-->
     <section class="py-5 border-bottom">

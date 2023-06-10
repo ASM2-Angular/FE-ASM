@@ -92,6 +92,7 @@ export class ProductEditComponent {
             price: this.productForm.value.price || 0,
             img: this.productForm.value.img || "",
             desc: this.productForm.value.desc || ""
+
           }
           this.productService.updateProduct(product).subscribe((product) => {
             console.log('product', product);

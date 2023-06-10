@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -26,9 +26,12 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { AccountComponent } from './pages/account/account.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { CartProductComponent } from './pages/cart-product/cart-product.component';
+
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { CategoryAddComponent } from './pages/category-add/category-add.component';
 import { CategoryEditComponent } from './pages/category-edit/category-edit.component';
+
+// import { AuthInterceptor } from './auth.interceptor';
 
 
 
@@ -68,7 +71,11 @@ import { CategoryEditComponent } from './pages/category-edit/category-edit.compo
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  //   providers: [{
+  //     provide: HTTP_INTERCEPTORS,
+  //     useClass: AuthInterceptor,
+  //     multi: true
+  // }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,17 @@
+<style>
+    .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .pagination a {
+        margin: 0 5px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
 <div class="container">
     <p class="add-product">List user</p>
     <div class="search-container">
@@ -11,15 +25,19 @@
                 <th>STT</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Ảnh</th>
                 <th>Role</th>
                 <th></th>
             </tr>
         </thead>
         <tbody *ngIf="user && user.length">
-            <tr *ngFor="let item of user; index as i">
+            <tr *ngFor="let item of user | slice:startIndex:endIndex; index as i">
                 <td>{{i+1}}</td>
                 <td>{{item.name}}</td>
                 <td>{{item.email}}</td>
+                <td width="50">
+                    <img width="100" [src]="item.img" />
+                </td>
                 <td>{{item.role}}</td>
 
                 <td>
@@ -29,4 +47,12 @@
             </tr>
         </tbody>
     </table>
+    <div class="pagination">
+        <a class="btn btn-outline-success" (click)="prevPage()">Previous</a>
+        <ng-container *ngFor="let page of pages">
+            <a class="btn btn-outline-success" (click)="goToPage(page)" [class.active]="currentPage === page">{{ page
+                }}</a>
+        </ng-container>
+        <a class="btn btn-outline-success" (click)="nextPage()">Next</a>
+    </div>
 </div>
