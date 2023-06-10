@@ -1,0 +1,36 @@
+<div>
+    <p class="add-product">Edit Product</p>
+    <form (ngSubmit)="onHandleSubmit()" [formGroup]="userForm" class="my-4">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" class="form-control" formControlName="name">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" class="form-control" formControlName="email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" class="form-control" formControlName="password">
+        </div>
+        <div class="form-group">
+            <label for="img">ảnh mới</label>
+            <input type="file" id="img" class="form-control" formControlName="imgNew" (change)="HandleGetfile($event)">
+        </div>
+        <div class="form-group">
+            <label for="img">Hoặc giữ lại ảnh cũ</label>
+            <img [src]="userForm.get('img')?.value" alt="" width="200px">
+        </div>
+        <div class="form-group">
+            <label for="role">Role</label>
+            <select class="form-control" name="role" id="">
+                <option value="1">admin</option>
+                <option value="2">member</option>
+            </select>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary home-button">Edit</button>
+    </form>
+    <a href="/admin/user" class="home-button">Back Home</a>
+</div>

@@ -1,36 +1,36 @@
 import { Component } from '@angular/core';
-import { IProduct } from 'src/app/interfaces/Product';
-import { ProductService } from 'src/app/services/product.service';
+import { IUSser } from 'src/app/interfaces/User';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.scss']
 })
-
-export class HomePageComponent {
+export class UserListComponent {
+  user!: IUSser[];
+  data: any;
   items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6', 'Item 7', 'Item 8', 'Item 9', 'Item 10', 'Item 11'];
-  pageSize = 3;
+  pageSize = 7;
   currentPage = 1;
   startIndex = 0;
   endIndex = this.pageSize;
   pages: number[] = [];
-  products!: IProduct[];
-  docs: any;
-  constructor(
-    private productService: ProductService
-  ) {
-    this.calculatePages();
-    this.productService.getProducts().subscribe(data => {
-      this.docs = data;
-      this.products = this.docs.docs;
-      console.log(data);
 
-      console.log(this.products);
+  constructor(private userService: UserService) {
+    this.calculatePages();
+    this.userService.getUsers().subscribe(data => {
+      this.data = data;
+      this.user = this.data.data;
+      console.log(this.user);
 
     })
   }
-
+  removeUser(_id: any) {
+    this.userService.deleteUser(_id).subscribe(() => {
+      this.user = this.user.filter(user => user._id !== _id)
+    })
+  }
   calculatePages() {
     const pageCount = Math.ceil(this.items.length / this.pageSize);
     this.pages = [];
@@ -60,5 +60,4 @@ export class HomePageComponent {
       this.endIndex = this.startIndex + this.pageSize;
     }
   }
-
 }

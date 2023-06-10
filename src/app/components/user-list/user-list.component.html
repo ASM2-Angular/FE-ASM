@@ -13,40 +13,36 @@
     }
 </style>
 <div class="container">
-    <p class="add-product">List Product</p>
+    <p class="add-product">List user</p>
     <div class="search-container">
-
-        <input type="text" placeholder="Nhập từ khóa tìm kiếm" [(ngModel)]="searchTerm">
-        <button type="submit" (click)="search()">Tìm kiếm</button>
-
+        <input type="text" placeholder="Nhập từ khóa tìm kiếm">
+        <button type="submit">Tìm kiếm</button>
     </div>
     <hr>
-    <a href="admin/product/add" class="btn btn-success">Add Product</a>
-
     <table class="table-border table">
         <thead>
             <tr>
                 <th>STT</th>
-                <th>name</th>
-                <th>price</th>
-                <th>Images</th>
-                <th>desc</th>
-                <th>Option</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Ảnh</th>
+                <th>Role</th>
+                <th></th>
             </tr>
         </thead>
-        <tbody *ngIf="products && products.length" class="mb">
-            <tr *ngFor="let item of products | slice:startIndex:endIndex; index as i">
+        <tbody *ngIf="user && user.length">
+            <tr *ngFor="let item of user | slice:startIndex:endIndex; index as i">
                 <td>{{i+1}}</td>
                 <td>{{item.name}}</td>
-                <td>{{item.price}}</td>
+                <td>{{item.email}}</td>
                 <td width="50">
-                    <img width="50" [src]="item.img" />
+                    <img width="100" [src]="item.img" />
                 </td>
-                <td>{{item.desc}}</td>
+                <td>{{item.role}}</td>
 
                 <td>
-                    <button class="btn btn-outline-danger" (click)="removeItem(item._id)">Xóa</button>
-                    <a href="admin/product/{{item._id}}/edit" class="btn btn-outline-warning mt">Sửa</a>
+                    <button class="btn btn-outline-danger" (click)="removeUser(item._id)">Xóa</button>
+                    <a href="admin/user/{{item._id}}/edit" class="btn btn-outline-warning mt">Sửa</a>
                 </td>
             </tr>
         </tbody>

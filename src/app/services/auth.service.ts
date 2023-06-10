@@ -13,4 +13,12 @@ export class AuthService {
 signup(data: any): Observable<any> {
   return this.http.post(`${this.API_URL}/signup`, data);
 }
+
+signin(user: any): Observable<any> {
+  return this.http.post(`${this.API_URL}/signin`, user)
+}
+isAuthenticated(): any {
+  return JSON.parse(localStorage.getItem('credential')!) || {};
+}
+
 }
