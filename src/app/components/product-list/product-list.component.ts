@@ -23,6 +23,7 @@ export class ProductListComponent {
 
   constructor(private productService: ProductService, private categoryService: CategoryService) {
 
+
     this.productService.getProducts().subscribe(data => {
       this.docs = data;
       this.products = this.docs.docs;

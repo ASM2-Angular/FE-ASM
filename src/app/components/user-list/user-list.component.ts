@@ -10,7 +10,6 @@ import { UserService } from 'src/app/services/user.service';
 export class UserListComponent {
   user!: IUSser[];
   data: any;
-  items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6', 'Item 7', 'Item 8', 'Item 9', 'Item 10', 'Item 11'];
   pageSize = 7;
   currentPage = 1;
   startIndex = 0;
@@ -18,12 +17,12 @@ export class UserListComponent {
   pages: number[] = [];
 
   constructor(private userService: UserService) {
-    this.calculatePages();
+
     this.userService.getUsers().subscribe(data => {
       this.data = data;
       this.user = this.data.data;
       console.log(this.user);
-
+      this.calculatePages();
     })
   }
   removeUser(_id: any) {
@@ -32,7 +31,7 @@ export class UserListComponent {
     })
   }
   calculatePages() {
-    const pageCount = Math.ceil(this.items.length / this.pageSize);
+    const pageCount = Math.ceil(this.user.length / this.pageSize);
     this.pages = [];
     for (let i = 1; i <= pageCount; i++) {
       this.pages.push(i);
