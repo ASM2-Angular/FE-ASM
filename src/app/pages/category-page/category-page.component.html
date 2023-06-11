@@ -65,46 +65,31 @@
             </div>
         </div>
     </header>
-    <!-- Features section-->
-    <section class="py-5 border-bottom" id="features">
-        <div class="container px-5 my-5">
-            <div class="row gx-5">
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <img src="../../../assets/images/pet-img.png" width="200px">
-                    <h2 class="h4 fw-bolder">Tắm Cho Pet</h2>
-
-                    <p>Hãy đến Pet Shop để khám phá và trải nghiệm một cửa hàng thú cưng chất lượng cao. Chúng tôi cam
-                        kết mang đến sự hài lòng và niềm vui cho bạn và thú cưng của bạn. </p>
-                </div>
-            </div>
-        </div>
-    </section>
     <!-- Title product-->
     <section class="bg-light py-5 border-bottom">
         <div class="container px-5 my-5">
-            <div class="text-center mb-5">
-                <h2 class="fw-bolder">Các Sản Phẩm Bán Chạy</h2>
-                <p class="lead mb-0">Từ các thương hiệu nổi tiếng</p>
+            <div class="text-center mb-5" *ngFor="let categories of categories">
+                <h2 class="fw-bolder">{{categories.name}}</h2>
             </div>
             <div class="row gx-5 justify-content-center mb-5 mb">
                 <!-- Gio Hang-->
-                <div *ngFor="let product of products | slice:startIndex:endIndex" class=" col-lg-6 col-xl-4">
+                <div *ngFor="let products of products | slice:startIndex:endIndex" class=" col-lg-6 col-xl-4">
                     <div class="card mb-5 mb-xl-0 ">
                         <div class="card-body p-5 ">
-                            <img src="{{product.img}}" class="img-fluid custom-height">
+                            <img src="{{products.img}}" class="img-fluid custom-height">
 
                             <ul class="list-unstyled mb-4">
                                 <li class="mb-2">
                                     <i class="text-bold fs-2 text"></i>
-                                    <strong>{{product.name}}</strong>
+                                    <strong>{{products.name}}</strong>
 
                                 </li>
                                 <li class="mb-2">
-                                    <strong class=" fs-3 text text-danger">{{product.price}} $</strong>
+                                    <strong class=" fs-3 text text-danger">{{products.price}} $</strong>
                                 </li>
                                 <li class="mb-2">
                                     <i class="bi bi-check text-primary"></i>
-                                    {{product.desc}}
+                                    {{products.desc}}
                                 </li>
                                 <li class="mb-2">
                                     <i class="bi bi-check text-primary"></i>
@@ -112,7 +97,7 @@
                                 </li>
                             </ul>
                             <div class="d-grid">
-                                <a class="btn btn-outline-primary" routerLink="product/{{product._id}}">Choose plan</a>
+                                <a class="btn btn-outline-primary" routerLink="product/{{products._id}}">Choose plan</a>
                             </div>
                         </div>
                     </div>

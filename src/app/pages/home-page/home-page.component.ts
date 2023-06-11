@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ICategory } from 'src/app/interfaces/Category';
 import { IProduct } from 'src/app/interfaces/Product';
+import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -17,10 +18,16 @@ export class HomePageComponent {
   pages: number[] = [];
   products!: IProduct[];
   docs: any;
+  categories!: ICategory[]
   constructor(
-    private productService: ProductService
+    private productService: ProductService,
+    private categoryService: CategoryService
   ) {
+    this.categoryService.getCategories().subscribe(data => {
+      this.categories = data;
+      console.log(this.categories);
 
+    })
     this.productService.getProducts().subscribe(data => {
       this.docs = data;
       this.products = this.docs.docs;

@@ -4,40 +4,39 @@ import { ProductService } from 'src/app/services/product.service';
 import { ActivatedRoute } from '@angular/router';
 
 import { ICategory } from 'src/app/interfaces/Category';
+import { CategoryService } from 'src/app/services/category.service';
 @Component({
   selector: 'app-category-page',
   templateUrl: './category-page.component.html',
   styleUrls: ['./category-page.component.scss']
 })
 export class CategoryPageComponent {
-  pageSize = 3;
+  categories!: ICategory[];
+  products!: IProduct[];
+  pageSize = 7;
   currentPage = 1;
   startIndex = 0;
   endIndex = this.pageSize;
   pages: number[] = [];
-  products!: IProduct[];
-  docs: any;
   constructor(
-    private productService: ProductService, private router: ActivatedRoute
+    private router: ActivatedRoute,
+    private categoryService: CategoryService,
+    private productService: ProductService
   ) {
     this.router.paramMap.subscribe((params => {
-      const categoryId = (params.get('categoryId'));  //
-      this.productService.getProductsByCategory(categoryId!).subscribe((data => {
-        this.products = data;
-        console.log(data);
+      const id = (params.get('id'));  //
+      if (id) {
+        this.categoryService.getCategory(id!).subscribe((data: any) => {
+          this.categories = [data];
 
-
-        console.log(this.products);
-
-
-        this.calculatePages();
-      }))
+          this.products = data.products;
+          this.calculatePages();
+          console.log(this.categories);
+          console.log(this.products);
+        })
+      }
     }))
   }
-
-
-
-
 
   calculatePages() {
     const pageCount = Math.ceil(this.products.length / this.pageSize);

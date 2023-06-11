@@ -36,7 +36,7 @@ const routes: Routes = [
       { path: 'account/:id/changepassword', component: ChangePasswordComponent },
 
       { path: 'cart', component: CartProductComponent },
-      { path: 'category', component: CategoryPageComponent }
+      { path: 'category/:id', component: CategoryPageComponent }
     ]
   },
   {

@@ -69,9 +69,9 @@
     <section class="py-5 border-bottom" id="features">
         <div class="container px-5 my-5">
             <div class="row gx-5">
-                <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="col-lg-4 mb-5 mb-lg-0" *ngFor="let categories of categories">
                     <img src="../../../assets/images/pet-img.png" width="200px">
-                    <h2 class="h4 fw-bolder">Tắm Cho Pet</h2>
+                    <h2 class="h4 fw-bolder"><a routerLink="category/{{categories._id}}">{{categories.name}}</a></h2>
 
                     <p>Hãy đến Pet Shop để khám phá và trải nghiệm một cửa hàng thú cưng chất lượng cao. Chúng tôi cam
                         kết mang đến sự hài lòng và niềm vui cho bạn và thú cưng của bạn. </p>
@@ -80,7 +80,7 @@
                         <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
-                <div class="col-lg-4 mb-5 mb-lg-0">
+                <!-- <div class="col-lg-4 mb-5 mb-lg-0">
                     <img src="../../../assets/images/pet1.png" width="200px">
                     <h2 class="h4 fw-bolder">Tỉa Lông Cho Pet</h2>
                     <p>Hãy đến Pet Shop để khám phá và trải nghiệm một cửa hàng thú cưng chất lượng cao. Chúng tôi cam
@@ -99,7 +99,7 @@
                         Đặt Ngay
                         <i class="bi bi-arrow-right"></i>
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
