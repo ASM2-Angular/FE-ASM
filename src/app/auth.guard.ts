@@ -12,11 +12,12 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const credential = this.authService?.isAuthenticated();
-    
+
     if (credential?.user?.role == 'admin') {
       return true
     } else {
-      this.router.navigate(['**'])
+      window.alert('Bạn không có quyền truy cập vào trang này')
+      this.router.navigate([''])
       return false
     }
   }

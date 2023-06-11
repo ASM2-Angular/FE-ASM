@@ -20,11 +20,9 @@
     </div>
     <br>
     <div class="form-group">
-      <select name="mySelect" class="form-select">
-        <option value="option1">Tùy chọn 1</option>
-        <option value="option2">Tùy chọn 2</option>
-        <option value="option3">Tùy chọn 3</option>
-        <option value="option4">Tùy chọn 4</option>
+      <label for="category">Category:</label>
+      <select id="category" class="form-control" formControlName="categoryId">
+        <option *ngFor="let categories of categories" [value]="categories._id">{{categories.name}}</option>
       </select>
     </div>
     <button type="submit" class="mb btn btn-outline-success" [disabled]="!productForm.valid">Submit</button>

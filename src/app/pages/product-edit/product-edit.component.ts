@@ -5,6 +5,8 @@ import { IProduct } from 'src/app/interfaces/Product';
 import { ProductService } from 'src/app/services/product.service';
 import { Router } from '@angular/router';
 import { UploadService } from 'src/app/services/upload.service';
+import { CategoryService } from 'src/app/services/category.service';
+import { ICategory } from 'src/app/interfaces/Category';
 
 @Component({
   selector: 'app-product-edit',
@@ -13,12 +15,14 @@ import { UploadService } from 'src/app/services/upload.service';
 })
 export class ProductEditComponent {
   product!: IProduct;
+  categories!: ICategory[]
   productForm = this.formBuilder.group({
     name: ['', [Validators.required, Validators.minLength(4)]],
     price: [0],
     img: ['', Validators.required],
     desc: ['', [Validators.required, Validators.minLength(4)]],
-    imgNew: ['']
+    imgNew: [''],
+    categoryId: ['']
   })
   docs: any;
   products: any;
@@ -27,27 +31,16 @@ export class ProductEditComponent {
     private productService: ProductService,
     private router: ActivatedRoute,
     private route2: Router,
-    private uploadService: UploadService
+    private uploadService: UploadService,
+    private categoryService: CategoryService
   ) {
     this.router.paramMap.subscribe((params => {
+      this.categoryService.getCategories().subscribe(data => {
+        this.categories = data;
+        console.log(this.categories);
+
+      })
       const id = (params.get('id'));  //
-      // console.log(params.get('id'));
-      // return;
-      // this.productService.getProduct(id!).subscribe(({ data }) => { 
-      //   this.product = data;
-      //   console.log(data);  
-      //   // console.log(this.product);
-      //   this.productForm.patchValue({
-      //     name: data.name,
-      //     price: data.price,
-      //     img: data.img,
-      //     desc: data.desc
-
-
-      //   })
-      //   console.log(this.productForm.value);
-
-      // }, error => console.log(error.message))
       if (id) {
         this.productService.getProduct(id!).subscribe((data: any) => {
           console.log(data.data);
@@ -56,7 +49,8 @@ export class ProductEditComponent {
               name: data.data.name,
               price: data.data.price,
               desc: data.data.desc,
-              img: data.data.img
+              img: data.data.img,
+              categoryId: data.data.categoryId
             })
           }
         })
@@ -91,7 +85,8 @@ export class ProductEditComponent {
             name: this.productForm.value.name || "",
             price: this.productForm.value.price || 0,
             img: this.productForm.value.img || "",
-            desc: this.productForm.value.desc || ""
+            desc: this.productForm.value.desc || "",
+            categoryId: this.productForm.value.categoryId || ''
 
           }
           this.productService.updateProduct(product).subscribe((product) => {
