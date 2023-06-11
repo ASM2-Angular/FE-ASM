@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IProduct } from '../interfaces/Product';
-
+import { ICategory } from '../interfaces/Category';
 @Injectable({
   providedIn: 'root',
 })
@@ -16,7 +16,7 @@ export class ProductService {
   deleteProduct(_id: string): Observable<any> {
     return this.http.delete(`http://localhost:8080/api/products/${_id}`)
   }
- getProduct(_id: string): Observable<any> {
+  getProduct(_id: string): Observable<any> {
     return this.http.get<any>(`http://localhost:8080/api/products/${_id}`)
   }
   addProduct(product: IProduct): Observable<IProduct> {
@@ -24,5 +24,8 @@ export class ProductService {
   }
   updateProduct(product: IProduct): Observable<IProduct> {
     return this.http.put<IProduct>(`http://localhost:8080/api/products/${product._id}`, product)
+  }
+  getProductsByCategory(categoryId: string): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(`http://localhost:8080/api/categories/${categoryId}`)
   }
 }

@@ -23,6 +23,7 @@ import { AuthGuard } from './auth.guard';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { CategoryAddComponent } from './pages/category-add/category-add.component';
 import { CategoryEditComponent } from './pages/category-edit/category-edit.component';
+import { CategoryPageComponent } from './pages/category-page/category-page.component';
 const routes: Routes = [
   {
     path: '', component: BaseLayoutComponent, children: [
@@ -35,7 +36,7 @@ const routes: Routes = [
       { path: 'account/:id/changepassword', component: ChangePasswordComponent },
 
       { path: 'cart', component: CartProductComponent },
-
+      { path: 'category', component: CategoryPageComponent }
     ]
   },
   {

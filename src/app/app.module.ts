@@ -30,6 +30,8 @@ import { CartProductComponent } from './pages/cart-product/cart-product.componen
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { CategoryAddComponent } from './pages/category-add/category-add.component';
 import { CategoryEditComponent } from './pages/category-edit/category-edit.component';
+import { CategoryPageComponent } from './pages/category-page/category-page.component';
+
 
 // import { AuthInterceptor } from './auth.interceptor';
 
@@ -62,6 +64,7 @@ import { CategoryEditComponent } from './pages/category-edit/category-edit.compo
     CategoryListComponent,
     CategoryAddComponent,
     CategoryEditComponent,
+    CategoryPageComponent,
 
   ],
   imports: [

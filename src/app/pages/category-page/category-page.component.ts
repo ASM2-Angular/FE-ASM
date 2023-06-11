@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import { ICategory } from 'src/app/interfaces/Category';
 import { IProduct } from 'src/app/interfaces/Product';
 import { ProductService } from 'src/app/services/product.service';
+import { ActivatedRoute } from '@angular/router';
 
+import { ICategory } from 'src/app/interfaces/Category';
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  selector: 'app-category-page',
+  templateUrl: './category-page.component.html',
+  styleUrls: ['./category-page.component.scss']
 })
-
-export class HomePageComponent {
+export class CategoryPageComponent {
   pageSize = 3;
   currentPage = 1;
   startIndex = 0;
@@ -18,18 +18,26 @@ export class HomePageComponent {
   products!: IProduct[];
   docs: any;
   constructor(
-    private productService: ProductService
+    private productService: ProductService, private router: ActivatedRoute
   ) {
+    this.router.paramMap.subscribe((params => {
+      const categoryId = (params.get('categoryId'));  //
+      this.productService.getProductsByCategory(categoryId!).subscribe((data => {
+        this.products = data;
+        console.log(data);
 
-    this.productService.getProducts().subscribe(data => {
-      this.docs = data;
-      this.products = this.docs.docs;
-      console.log(data);
 
-      console.log(this.products);
-      this.calculatePages();
-    })
+        console.log(this.products);
+
+
+        this.calculatePages();
+      }))
+    }))
   }
+
+
+
+
 
   calculatePages() {
     const pageCount = Math.ceil(this.products.length / this.pageSize);
@@ -60,5 +68,4 @@ export class HomePageComponent {
       this.endIndex = this.startIndex + this.pageSize;
     }
   }
-
 }
