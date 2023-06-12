@@ -14,6 +14,7 @@
             <tr>
                 <th>STT</th>
                 <th>Name</th>
+                <th>Img</th>
                 <th>Option</th>
             </tr>
         </thead>
@@ -21,6 +22,9 @@
             <tr *ngFor="let item of categories; index as i">
                 <td>{{i+1}}</td>
                 <td>{{item.name}}</td>
+                <td width="50">
+                    <img width="100" [src]="item.img" />
+                </td>
                 <td>
                     <button class="btn btn-outline-danger" (click)="removeItem(item._id)">Xóa</button>
                     <a href="admin/category/{{item._id}}/edit" class="btn btn-outline-warning mt">Sửa</a>

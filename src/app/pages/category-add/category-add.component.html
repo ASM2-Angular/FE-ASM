@@ -5,6 +5,10 @@
             <label for="name">Name:</label>
             <input type="text" id="name" class="form-control" formControlName="name">
         </div>
+        <div class="form-group">
+            <label for="img">Img</label>
+            <input type="file" id="img" class="form-control" formControlName="img" (change)="HandleGetfile($event)">
+        </div>
         <button type="submit" class="mb btn btn-outline-success" [disabled]="!categoryForm.valid">Submit</button>
     </form>
     <a href="/admin/category" class="home-button">Back Home</a>

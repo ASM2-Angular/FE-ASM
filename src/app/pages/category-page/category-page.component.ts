@@ -13,7 +13,7 @@ import { CategoryService } from 'src/app/services/category.service';
 export class CategoryPageComponent {
   categories!: ICategory[];
   products!: IProduct[];
-  pageSize = 7;
+  pageSize = 3;
   currentPage = 1;
   startIndex = 0;
   endIndex = this.pageSize;
