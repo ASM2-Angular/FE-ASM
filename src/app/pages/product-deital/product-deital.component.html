@@ -45,16 +45,16 @@
   <div class="container mb" *ngFor="let products of products">
     <div class="row ">
       <div class="col-md-6">
-        <img [src]="products.img" class="img-fluid" alt="Ảnh sản phẩm" width="500px">
+        <img [src]="products.img" class="img-fluid" alt="Ảnh sản phẩm" width="300px">
       </div>
       <div class="col-md-6 mb-10">
-        <h2>Tên sản phẩm: </h2>
-        <h3>{{products.name}}</h3>
-        <h2>Giá sản phẩm: </h2>
-        <h3>{{products.price}}</h3>
-        <h2>Mô tả sản phẩm:</h2>
-        <h3>{{products.desc}}</h3>
-        <button class="btn btn-primary">Thêm vào giỏ hàng</button>
+        <h4>Tên sản phẩm: </h4>
+        <p>{{products.name}}</p>
+        <h4>Giá sản phẩm: </h4>
+        <p>{{products.price}}$</p>
+        <h4>Mô tả sản phẩm:</h4>
+        <p>{{products.desc}}</p>
+        <button class="btn btn-primary"> <a routerLink="/cart" class="tt">Thêm vào Giỏ Hàng</a></button>
 
 
       </div>
