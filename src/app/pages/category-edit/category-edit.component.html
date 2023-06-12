@@ -5,6 +5,14 @@
             <label for="name">Name:</label>
             <input type="text" id="name" class="form-control" formControlName="name" placeholder="Name">
         </div>
+        <div class="form-group">
+            <label for="img">ảnh mới</label>
+            <input type="file" id="img" class="form-control" formControlName="img" (change)="HandleGetfile($event)">
+        </div>
+        <div class="form-group">
+            <label for="img">Hoặc giữ lại ảnh cũ</label>
+            <img [src]="categoryForm.get('img')?.value" alt="" width="200px">
+        </div>
         <button type="submit" class="btn btn-primary home-button" [disabled]="!categoryForm.valid">Edit</button>
     </form>
     <a href="/admin/category" class="home-button">Back Home</a>

@@ -71,7 +71,7 @@
             <div class="text-center mb-5" *ngFor="let categories of categories">
                 <h2 class="fw-bolder">{{categories.name}}</h2>
             </div>
-            <div class="row gx-5 justify-content-center mb-5 mb">
+            <div class="row gx-5 justify-content-center mb-5 mb" *ngIf="products.length > 0; else noProducts">
                 <!-- Gio Hang-->
                 <div *ngFor="let products of products | slice:startIndex:endIndex" class=" col-lg-6 col-xl-4">
                     <div class="card mb-5 mb-xl-0 ">
@@ -82,7 +82,6 @@
                                 <li class="mb-2">
                                     <i class="text-bold fs-2 text"></i>
                                     <strong>{{products.name}}</strong>
-
                                 </li>
                                 <li class="mb-2">
                                     <strong class=" fs-3 text text-danger">{{products.price}} $</strong>
@@ -97,12 +96,12 @@
                                 </li>
                             </ul>
                             <div class="d-grid">
-                                <a class="btn btn-outline-primary" routerLink="product/{{products._id}}">Choose plan</a>
+                                <a class="btn btn-outline-primary" routerLink="product/{{products._id}}">Choose
+                                    plan</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Pricing card pro-->
 
                 <div class="pagination">
                     <a (click)="prevPage()">Previous</a>
@@ -112,6 +111,10 @@
                     <a (click)="nextPage()">Next</a>
                 </div>
             </div>
+            <ng-template #noProducts>
+                <h4>Danh mục này chưa có sản phẩm nào</h4>
+            </ng-template>
+            <!-- Pricing card pro-->
         </div>
     </section>
     <!-- Testimonials section-->
