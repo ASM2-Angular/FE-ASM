@@ -31,7 +31,8 @@
                 <th>price</th>
                 <th>Images</th>
                 <th>desc</th>
-                <th>Option</th>
+                <th>Category</th>
+                <th></th>
             </tr>
         </thead>
         <tbody *ngIf="products && products.length" class="mb">
@@ -40,10 +41,14 @@
                 <td>{{item.name}}</td>
                 <td>{{item.price}}</td>
                 <td width="50">
-                    <img width="50" [src]="item.img" />
+                    <img width="100" [src]="item.img" />
                 </td>
                 <td>{{item.desc}}</td>
-
+                <td>
+                    <ng-container *ngFor="let category of categories">
+                        <span *ngIf="category._id === item.categoryId">{{ category.name }}</span>
+                    </ng-container>
+                </td>
                 <td>
                     <button class="btn btn-outline-danger" (click)="removeItem(item._id)">Xóa</button>
                     <a href="admin/product/{{item._id}}/edit" class="btn btn-outline-warning mt">Sửa</a>

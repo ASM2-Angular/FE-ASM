@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -26,6 +26,13 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { AccountComponent } from './pages/account/account.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { CartProductComponent } from './pages/cart-product/cart-product.component';
+
+import { CategoryListComponent } from './components/category-list/category-list.component';
+import { CategoryAddComponent } from './pages/category-add/category-add.component';
+import { CategoryEditComponent } from './pages/category-edit/category-edit.component';
+import { CategoryPageComponent } from './pages/category-page/category-page.component';
+
+
 // import { AuthInterceptor } from './auth.interceptor';
 
 
@@ -54,6 +61,10 @@ import { CartProductComponent } from './pages/cart-product/cart-product.componen
     AccountComponent,
     ChangePasswordComponent,
     CartProductComponent,
+    CategoryListComponent,
+    CategoryAddComponent,
+    CategoryEditComponent,
+    CategoryPageComponent,
 
   ],
   imports: [
@@ -63,11 +74,11 @@ import { CartProductComponent } from './pages/cart-product/cart-product.componen
     FormsModule,
     ReactiveFormsModule
   ],
-//   providers: [{
-//     provide: HTTP_INTERCEPTORS,
-//     useClass: AuthInterceptor,
-//     multi: true
-// }],
+  //   providers: [{
+  //     provide: HTTP_INTERCEPTORS,
+  //     useClass: AuthInterceptor,
+  //     multi: true
+  // }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

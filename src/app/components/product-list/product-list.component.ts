@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ICategory } from 'src/app/interfaces/Category';
 import { IProduct } from 'src/app/interfaces/Product';
+import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -9,10 +11,9 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductListComponent {
   products!: IProduct[]
-
+  categories!: ICategory[];
   docs: any
   searchTerm: string = "";
-  items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5', 'Item 6', 'Item 7', 'Item 8', 'Item 9', 'Item 10', 'Item 11'];
   pageSize = 7;
   currentPage = 1;
   startIndex = 0;
@@ -20,15 +21,18 @@ export class ProductListComponent {
   pages: number[] = [];
 
 
-  constructor(private productService: ProductService) {
-    this.calculatePages();
+  constructor(private productService: ProductService, private categoryService: CategoryService) {
+
+
     this.productService.getProducts().subscribe(data => {
       this.docs = data;
       this.products = this.docs.docs;
+      this.categoryService.getCategories().subscribe(data => {
+        this.categories = data;
+      });
       console.log(this.products);
 
-
-
+      this.calculatePages();
     })
   }
   search() {
@@ -50,7 +54,7 @@ export class ProductListComponent {
     }
   }
   calculatePages() {
-    const pageCount = Math.ceil(this.items.length / this.pageSize);
+    const pageCount = Math.ceil(this.products.length / this.pageSize);
     this.pages = [];
     for (let i = 1; i <= pageCount; i++) {
       this.pages.push(i);
@@ -80,6 +84,3 @@ export class ProductListComponent {
   }
 
 }
-
-
-

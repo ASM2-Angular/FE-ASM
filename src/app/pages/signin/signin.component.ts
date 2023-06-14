@@ -11,18 +11,20 @@ import { IUSser } from 'src/app/interfaces/User';
 })
 export class SigninComponent {
   user!: IUSser;
+  incorrectPassword: boolean = false;
+  emailExists: boolean = false;
+
   formSignin = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]],
   })
 
-  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {
+  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {}
 
-  }
   onHandleSubmit() {
     if (this.formSignin.valid) {
       this.auth.signin(this.formSignin.value).subscribe(data => {
-        localStorage.setItem('credential', JSON.stringify(data))
+        localStorage.setItem('credential', JSON.stringify(data));
         this.user = data.user;
         console.log(data);
         window.alert("Đăng nhập thành công");
@@ -31,14 +33,11 @@ export class SigninComponent {
         } else {
           this.router.navigate(['']);
         }
-
-      })
-
-
-
-
+      }, error => {
+        if (error.status === 400) {
+          this.incorrectPassword = true;
+        } 
+      });
     }
   }
-
-
 }

@@ -16,20 +16,22 @@
     </div>
     <div class="form-group">
       <label for="img">Hoặc giữ lại ảnh cũ</label>
-      <img [src]="productForm.get('img')?.value" alt="">
+      <img [src]="productForm.get('img')?.value" alt="" width="200px">
     </div>
     <div class="form-group">
       <label for="desc">Desc:</label>
       <input type="text" id="desc" class="form-control" formControlName="desc" placeholder="Desc">
     </div>
-    <!-- <div class="form-group" >
-        <select name="mySelect" class="form-select" >
-          <option value="option1">Tùy chọn 1</option>
-          <option value="option2">Tùy chọn 2</option>
-          <option value="option3">Tùy chọn 3</option>
-          <option value="option4">Tùy chọn 4</option>
-        </select>
-      </div> -->
+    <div class="form-group">
+      <label for="category">Category:</label>
+      <select id="category" class="form-control" formControlName="categoryId">
+        <option *ngFor="let category of categories" [value]="category._id"
+          [selected]="category._id === productForm.get('categoryId')?.value">
+          {{ category.name }}
+        </option>
+      </select>
+
+    </div>
 
 
     <button type="submit" class="btn btn-primary home-button" [disabled]="!productForm.valid">Edit</button>

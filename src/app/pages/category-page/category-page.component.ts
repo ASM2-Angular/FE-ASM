@@ -1,41 +1,41 @@
 import { Component } from '@angular/core';
-import { ICategory } from 'src/app/interfaces/Category';
 import { IProduct } from 'src/app/interfaces/Product';
-import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
+import { ActivatedRoute } from '@angular/router';
 
+import { ICategory } from 'src/app/interfaces/Category';
+import { CategoryService } from 'src/app/services/category.service';
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  selector: 'app-category-page',
+  templateUrl: './category-page.component.html',
+  styleUrls: ['./category-page.component.scss']
 })
-
-export class HomePageComponent {
+export class CategoryPageComponent {
+  categories!: ICategory[];
+  products!: IProduct[];
   pageSize = 3;
   currentPage = 1;
   startIndex = 0;
   endIndex = this.pageSize;
   pages: number[] = [];
-  products!: IProduct[];
-  docs: any;
-  categories!: ICategory[]
   constructor(
-    private productService: ProductService,
-    private categoryService: CategoryService
+    private router: ActivatedRoute,
+    private categoryService: CategoryService,
+    private productService: ProductService
   ) {
-    this.categoryService.getCategories().subscribe(data => {
-      this.categories = data;
-      console.log(this.categories);
+    this.router.paramMap.subscribe((params => {
+      const id = (params.get('id'));  //
+      if (id) {
+        this.categoryService.getCategory(id!).subscribe((data: any) => {
+          this.categories = [data];
 
-    })
-    this.productService.getProducts().subscribe(data => {
-      this.docs = data;
-      this.products = this.docs.docs;
-      console.log(data);
-
-      console.log(this.products);
-      this.calculatePages();
-    })
+          this.products = data.products;
+          this.calculatePages();
+          console.log(this.categories);
+          console.log(this.products);
+        })
+      }
+    }))
   }
 
   calculatePages() {
@@ -67,5 +67,4 @@ export class HomePageComponent {
       this.endIndex = this.startIndex + this.pageSize;
     }
   }
-
 }
